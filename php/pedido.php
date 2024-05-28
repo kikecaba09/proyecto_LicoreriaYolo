@@ -1,6 +1,6 @@
 <?php
 
-$nombredelservidor = "localhost:8080";
+$nombredelservidor = "localhost";
 $nombredeusuario = "root";
 $contrasena = "";
 $basededatos = "licoreriayolo";
