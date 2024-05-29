@@ -7,48 +7,46 @@
     <link rel="stylesheet" href="css/registroCliente.css">
 </head>
 <body>
+    <h2>Registro de Cliente</h2>
+    <p>Ingrese sus datos para registrarse como cliente:</p>
+
     <div class="container-form register">
         <div class="form-information">
             <div class="form-information-childs">
-                <h2>Registro de Cliente</h2>
-                <p>Ingrese sus datos para registrarse como cliente:</p>
-                <form class="form form-register" novalidate>
-                    <div>
-                        <h4>Nombre Completo</h4>
-                        <br>
-                        <label>
-                            <input type="text" placeholder="Nombre Completo" name="fullName" required>
-                        </label>
-                    </div>
-                    <div>
-                        <h4>Correo Electrónico</h4>
-                        <br>
-                        <label>
-                            <input type="email" placeholder="Correo Electrónico" name="email" required>
-                        </label>
-                    </div>
-                    <div>
-                        <h4>Nombre de Usuario</h4>
-                        <br>
-                        <label>
-                            <input type="text" placeholder="Nombre de Usuario" name="username" required>
-                        </label>
-                    </div>
-                    <div>
-                        <h4>Contraseña</h4>
-                        <br>
-                        <label>
-                            <input type="password" placeholder="Contraseña" name="password" required>
-                        </label>
-                        <ul class="password-requirements" style="display: none;">
-                            <li>La contraseña debe tener al menos 8 caracteres.</li>
-                            <li>La contraseña debe contener al menos una letra mayúscula.</li>
-                            <li>La contraseña debe contener al menos un carácter especial.</li>
-                        </ul>
-                    </div>                    
-                    <input type="submit" value="Registrar">
-                </form>
-                <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p> <!-- Enlace para iniciar sesión -->
+                <div>
+                    <form class="form form-register" novalidate>
+                        <div>
+                            <h4>Nombre Completo</h4>
+                            <label>
+                                <input type="text" placeholder="Nombre Completo" name="fullName" required>
+                            </label>
+                        </div>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <label>
+                                <input type="email" placeholder="Correo Electrónico" name="email" required>
+                            </label>
+                        </div>
+                        <div>
+                            <h4>Nombre de Usuario</h4>
+                            <label>
+                                <input type="text" placeholder="Nombre de Usuario" name="username" required>
+                            </label>
+                        </div>
+                        <div>
+                            <h4>Contraseña</h4>
+                            <label>
+                                <input type="password" placeholder="Contraseña" name="password" required>
+                            </label>
+                            <ul class="password-requirements" style="display: none;">
+                                <li>La contraseña debe tener al menos 8 caracteres.</li>
+                                <li>La contraseña debe contener al menos una letra mayúscula.</li>
+                                <li>La contraseña debe contener al menos un carácter especial.</li>
+                            </ul>
+                        </div>                    
+                        <input type="submit" value="Registrar">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
