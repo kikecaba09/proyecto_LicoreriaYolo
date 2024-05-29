@@ -7,6 +7,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 7
     },
     {
@@ -17,6 +18,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"10",
         "precio": 5
     },
     {
@@ -27,6 +29,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -37,6 +40,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -47,6 +51,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -57,6 +62,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -67,6 +73,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -77,6 +84,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -87,6 +95,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -97,6 +106,7 @@
             "nombre": "Cervezas",
             "id": "cervezas"
         },
+        "cantidad":"15",
         "precio": 8
     },
     {
@@ -107,6 +117,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 25
     },
     {
@@ -117,6 +128,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 63
     },
     {
@@ -127,6 +139,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 35
     },
     {
@@ -137,6 +150,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 120
     },
     {
@@ -147,6 +161,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 120
     },
     {
@@ -157,6 +172,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 120
     },
     {
@@ -167,6 +183,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 120
     },
     {
@@ -177,6 +194,7 @@
             "nombre": "Vinos",
             "id": "vinos"
         },
+        "cantidad":"15",
         "precio": 120
     },
     {
@@ -187,6 +205,7 @@
             "nombre": "Otros",
             "id": "otros"
         },
+        "cantidad":"15",
         "precio": 45
     },
     {
@@ -197,6 +216,7 @@
             "nombre": "Otros",
             "id": "otros"
         },
+        "cantidad":"15",
         "precio": 12
     },
     {
@@ -207,36 +227,40 @@
             "nombre": "Otros",
             "id": "otros"
         },
+        "cantidad":"15",
         "precio": 55
     },
     {
         "id": "Otros-04",
-        "titulo": "Absolut Vodka",
+        "titulo": "Jagermerfter",
         "imagen": "../img/Otros/jagermerfter.webp",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
         },
+        "cantidad":"15",
         "precio": 55
     },
     {
         "id": "Otros-05",
-        "titulo": "Absolut Vodka",
+        "titulo": "Smirnoff",
         "imagen": "../img/Otros/smirnoff.webp",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
         },
-        "precio": 55
+        "cantidad":"20",
+        "precio": 24
     },
     {
         "id": "Otros-06",
-        "titulo": "Absolut Vodka",
+        "titulo": "Sangria",
         "imagen": "../img/Otros/sangria.jpg",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
         },
-        "precio": 55
+        "cantidad":"67",
+        "precio": 123
     }
 ]

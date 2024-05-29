@@ -25,19 +25,31 @@ function cargarProductos(productosElegidos) {
     productosElegidos.forEach(producto => {
         const div = document.createElement("div");
         div.classList.add("producto");
+        
+        const cantidadEnCarrito = productosEnCarrito.reduce((total, item) => {
+            if (item.id === producto.id) {
+                return total + item.cantidad;
+            }
+            return total;
+        }, 0);
+        
+        const cantidadDisponible = producto.cantidad - cantidadEnCarrito;
+
         div.innerHTML = `
-            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
-            <div class="producto-detalles">
-                <h3 class="producto-titulo">${producto.titulo}</h3>
-                <p class="producto-precio">$${producto.precio}.00</p>
-                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+            <div class="producto-contenido">
+                <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+                <div class="producto-detalles">
+                    <h3 class="producto-titulo">${producto.titulo}</h3>
+                    <p class="producto-precio">Precio: $${producto.precio}.00</p>
+                    <p class="producto-cantidad">Cantidad disponible: ${cantidadDisponible}</p>
+                </div>
             </div>
+            <button class="producto-agregar" id="${producto.id}">Agregar</button>
         `;
         contenedorProductos.append(div);
     })
     actualizarBotonesAgregar();
 }
-
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -75,6 +87,24 @@ if (productosEnCarritoLS) {
 function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
+
+    const cantidadEnCarrito = productosEnCarrito.reduce((total, item) => {
+        if (item.id === productoAgregado.id) {
+            return total + item.cantidad;
+        }
+        return total;
+    }, 0);
+
+    const cantidadDisponible = productoAgregado.cantidad - cantidadEnCarrito;
+
+    if (cantidadDisponible <= 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'No hay productos disponibles',
+            text: 'Lo sentimos, ya no hay más productos disponibles de este tipo.',
+        });
+        return;
+    }
 
     Swal.fire({
         title: '¿Cuántos productos quieres agregar?',
@@ -133,6 +163,7 @@ function agregarAlCarrito(e) {
         }
     });
 }
+
 
 function actualizarNumerito() {
     const numerito = document.querySelector('#numerito');
