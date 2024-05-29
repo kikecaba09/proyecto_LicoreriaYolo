@@ -290,7 +290,7 @@ header h1 {
 
 /* Estilo para cada pregunta */
 .faq-item {
-    border: 2px solid #0c0b0b; /* Borde sólido de color gris */
+    border: 3px solid #0c0b0b; /* Borde sólido de color gris */
     padding: 10px; /* Espacio interno dentro del borde */
     margin-bottom: 20px; /* Espacio entre preguntas */
     min-height: 100px; /* Altura mínima para cada pregunta */
