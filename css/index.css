@@ -268,6 +268,39 @@ header h1 {
     display: block;
 }
 
+
+/* Preguntas Frecuentes ESTILOS /*
+
+/* Estilo para centrar el título */
+.titulo-centrado {
+    text-align: center;
+}
+
+/* Estilo para las columnas */
+.columnas {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilo para cada columna */
+.columna {
+    flex-basis: calc(33.33% - 20px); /* Dividir en 3 columnas con margen */
+    margin-right: 20px; /* Espacio entre columnas */
+}
+
+/* Estilo para cada pregunta */
+.faq-item {
+    border: 2px solid #0c0b0b; /* Borde sólido de color gris */
+    padding: 10px; /* Espacio interno dentro del borde */
+    margin-bottom: 20px; /* Espacio entre preguntas */
+    min-height: 100px; /* Altura mínima para cada pregunta */
+    box-sizing: border-box; /* Incluir tamaño del borde y relleno en el ancho y alto */
+    border-radius: 50px;
+}
+
+
+
+
 /* Footer Styles */
 .footer {
     background-color: var(--clr-main);
