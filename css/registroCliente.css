@@ -1,65 +1,71 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
+    background-color: #111010;
+    color: #fff;
 }
 
 .container-form {
-    max-width: 600px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 20px;
+    max-width: 500px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 40px;
+    border: 2px solid ;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     text-align: center;
-    color: #333;
-}
-
-p {
     margin-bottom: 20px;
 }
 
-/* Estilos del formulario */
-.form {
-    margin-top: 20px;
-}
-
-.form h4 {
+h4 {
     margin-bottom: 5px;
+    color: #080808;
 }
 
-.form label {
-    display: block;
-    margin-bottom: 10px;
+/* Estilos para los íconos */
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #080808;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"] {
+i {
+    color: #e9e9e9;
+    font-size: 16px;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    margin-bottom: 15px;
+    border: 2px solid #070606;
+    border-radius: 10px;
 }
 
-.form input[type="submit"] {
+/* Estilos para el botón de envío */
+input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #060707;
+    font-family: "Bold", sans-serif;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.form input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
@@ -76,3 +82,7 @@ p {
     margin-bottom: 5px; /* Espacio entre los elementos de la lista */
 }
 
+label {
+    display: flex;
+    align-items: center;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Clientes</title>
     <link rel="stylesheet" href="css/registroCliente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <h2>Registro de Cliente</h2>
@@ -16,26 +17,38 @@
                 <div>
                     <form class="form form-register" novalidate>
                         <div>
-                            <h4>Nombre Completo</h4>
+                            <h4>Nombre Completo</h4><br>
                             <label>
+                                <span class="icon-container">
+                                    <i class="fas fa-address-card"></i>
+                                </span>
                                 <input type="text" placeholder="Nombre Completo" name="fullName" required>
                             </label>
                         </div>
                         <div>
-                            <h4>Correo Electrónico</h4>
+                            <h4>Correo Electrónico</h4><br>
                             <label>
+                                <span class="icon-container">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
                                 <input type="email" placeholder="Correo Electrónico" name="email" required>
                             </label>
                         </div>
                         <div>
-                            <h4>Nombre de Usuario</h4>
+                            <h4>Nombre de Usuario</h4><br>
                             <label>
+                                <span class="icon-container">
+                                    <i class="fas fa-user"></i>
+                                </span>
                                 <input type="text" placeholder="Nombre de Usuario" name="username" required>
                             </label>
                         </div>
                         <div>
-                            <h4>Contraseña</h4>
+                            <h4>Contraseña</h4><br>
                             <label>
+                                <span class="icon-container">
+                                    <i class="fas fa-lock"></i>
+                                </span>
                                 <input type="password" placeholder="Contraseña" name="password" required>
                             </label>
                             <ul class="password-requirements" style="display: none;">
@@ -43,7 +56,8 @@
                                 <li>La contraseña debe contener al menos una letra mayúscula.</li>
                                 <li>La contraseña debe contener al menos un carácter especial.</li>
                             </ul>
-                        </div>                    
+                        </div>    
+                        <br>                
                         <input type="submit" value="Registrar">
                     </form>
                 </div>
