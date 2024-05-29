@@ -1,61 +1,106 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
     const passwordField = document.querySelector('input[name="password"]');
     const passwordRequirements = document.querySelector('.password-requirements');
+    const passwordRequirementItems = passwordRequirements.querySelectorAll('li');
 
-    // Mostrar los requisitos de la contraseña al seleccionar el campo de contraseña
-    passwordField.addEventListener('focus', function() {
+    // Objeto para almacenar el estado de los requisitos cumplidos
+    const requirementsMet = {
+        length: false,
+        uppercase: false,
+        specialChar: false
+    };
+
+    // Función para mostrar los requisitos de la contraseña
+    function showPasswordRequirements() {
         passwordRequirements.style.display = 'block';
-    });
+    }
 
-    // Ocultar los requisitos de la contraseña al deseleccionar el campo de contraseña
-    passwordField.addEventListener('blur', function() {
+    // Función para ocultar los requisitos de la contraseña
+    function hidePasswordRequirements() {
         passwordRequirements.style.display = 'none';
-    });
+    }
 
-    const form = document.querySelector('.form-register');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+    // Función para marcar un requisito de contraseña como cumplido
+    function markRequirementAsMet(requirementItem) {
+        requirementItem.style.color = 'green'; // Cambiar color a verde
+        if (requirementItem.querySelector('.check') === null) {
+            const check = document.createElement('span');
+            check.className = 'check';
+            check.innerHTML = '&#10004;';
+            requirementItem.appendChild(check);
+        }
+    }
 
-        const fullName = form.querySelector('input[name="fullName"]').value;
-        const email = form.querySelector('input[name="email"]').value;
-        const username = form.querySelector('input[name="username"]').value;
-        const password = form.querySelector('input[name="password"]').value;
+    // Función para restablecer un requisito de contraseña a su estado normal
+    function resetRequirement(requirementItem) {
+        requirementItem.style.color = ''; // Restablecer color
+        const check = requirementItem.querySelector('.check');
+        if (check !== null) {
+            check.remove();
+        }
+    }
 
-        const validationMessage = validatePassword(password);
+    // Validar la contraseña y actualizar los requisitos
+    function validateAndUpdatePassword(password) {
+        // Reiniciar los requisitos cumplidos
+        for (let requirement in requirementsMet) {
+            requirementsMet[requirement] = false;
+        }
 
-        if (validationMessage === 'valid') {
-            const clientData = {
-                fullName: fullName,
-                email: email,
-                username: username,
-                password: password
-            };
-
-            // Guardar los datos del cliente en localStorage
-            saveDataToLocalStorage(clientData);
+        if (password.length >= 8) {
+            markRequirementAsMet(passwordRequirementItems[0]);
+            requirementsMet.length = true;
         } else {
-            alert(validationMessage);
+            resetRequirement(passwordRequirementItems[0]);
+        }
+
+        if (/[A-Z]/.test(password)) {
+            markRequirementAsMet(passwordRequirementItems[1]);
+            requirementsMet.uppercase = true;
+        } else {
+            resetRequirement(passwordRequirementItems[1]);
+        }
+
+        if (/[!@#$%^&*()_+]/.test(password)) {
+            markRequirementAsMet(passwordRequirementItems[2]);
+            requirementsMet.specialChar = true;
+        } else {
+            resetRequirement(passwordRequirementItems[2]);
+        }
+    }
+
+    // Mostrar u ocultar los requisitos de la contraseña según el foco del campo de contraseña
+    passwordField.addEventListener('focus', showPasswordRequirements);
+    passwordField.addEventListener('blur', hidePasswordRequirements);
+
+    // Ocultar los requisitos de la contraseña al cargar la página
+    hidePasswordRequirements();
+
+    // Validar la contraseña al escribir en el campo de contraseña
+    passwordField.addEventListener('input', function() {
+        const password = passwordField.value;
+        if (password === '') {
+            for (let requirement in requirementsMet) {
+                requirementsMet[requirement] = false;
+            }
+            for (let i = 0; i < passwordRequirementItems.length; i++) {
+                resetRequirement(passwordRequirementItems[i]);
+            }
+        } else {
+            validateAndUpdatePassword(password);
         }
     });
 
-    function validatePassword(password) {
-        // Verificar si la contraseña cumple con los requisitos mínimos
-        if (password.length < 8) {
-            return 'La contraseña debe tener al menos 8 caracteres.';
+    // Restablecer los requisitos si se modifica la contraseña
+    passwordField.addEventListener('change', function() {
+        const password = passwordField.value;
+        if (password === '') {
+            for (let requirement in requirementsMet) {
+                requirementsMet[requirement] = false;
+            }
+            for (let i = 0; i < passwordRequirementItems.length; i++) {
+                resetRequirement(passwordRequirementItems[i]);
+            }
         }
-        if (!/[A-Z]/.test(password)) {
-            return 'La contraseña debe contener al menos una letra mayúscula.';
-        }
-        if (!/[!@#$%^&*()_+]/.test(password)) {
-            return 'La contraseña debe contener al menos un caracter especial';
-        }
-        return 'valid';
-    }
-
-    function saveDataToLocalStorage(clientData) {
-        // Convertir el objeto a cadena JSON y guardarlo en localStorage
-        localStorage.setItem('clientData', JSON.stringify(clientData));
-        alert('Cliente registrado exitosamente.');
-    }
+    });
 });
