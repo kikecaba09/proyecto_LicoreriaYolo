@@ -87,16 +87,32 @@ if (productosEnCarritoLS) {
 function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
-    
-    const cantidadDisponible = productoAgregado.cantidad;
-    
+
+    const cantidadEnCarrito = productosEnCarrito.reduce((total, item) => {
+        if (item.id === productoAgregado.id) {
+            return total + item.cantidad;
+        }
+        return total;
+    }, 0);
+
+    const cantidadDisponible = productoAgregado.cantidad - cantidadEnCarrito;
+
+    if (cantidadDisponible <= 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'No hay productos disponibles',
+            text: 'Lo sentimos, ya no hay más productos disponibles de este tipo.',
+        });
+        return;
+    }
+
     Swal.fire({
         title: '¿Cuántos productos quieres agregar?',
         input: 'number',
         inputAttributes: {
             min: 1,
-            // Establecer la cantidad máxima disponible como máximo permitido
-            step: 1
+            step: 1,
+            
         },
         inputValue: 1,
         showCancelButton: true,
@@ -105,6 +121,16 @@ function agregarAlCarrito(e) {
     }).then((result) => {
         if (result.isConfirmed) {
             const cantidad = parseInt(result.value);
+
+            if (isNaN(cantidad) || cantidad < 1) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Cantidad no válida',
+                    text: 'Por favor, ingrese una cantidad válida.',
+                });
+                return;
+            }
+
             if (cantidad > cantidadDisponible) {
                 Swal.fire({
                     icon: 'error',
@@ -114,22 +140,6 @@ function agregarAlCarrito(e) {
                 return;
             }
 
-            // Agregar el producto al carrito
-            if (productosEnCarrito.some(producto => producto.id === idBoton)) {
-                const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
-                productosEnCarrito[index].cantidad += cantidad;
-            } else {
-                productoAgregado.cantidad = cantidad;
-                productosEnCarrito.push(productoAgregado);
-            }
-
-            // Actualizar el contador de productos en el carrito
-            actualizarNumerito();
-
-            // Guardar el carrito en el almacenamiento local
-            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-
-            // Mostrar mensaje de éxito
             Toastify({
                 text: "Producto agregado",
                 duration: 3000,
@@ -149,10 +159,20 @@ function agregarAlCarrito(e) {
                 },
                 onClick: function(){} // Callback after click
             }).showToast();
+
+            if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+                const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+                productosEnCarrito[index].cantidad += cantidad;
+            } else {
+                productoAgregado.cantidad = cantidad;
+                productosEnCarrito.push(productoAgregado);
+            }
+
+            actualizarNumerito();
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
         }
     });
 }
-
 
 
 function actualizarNumerito() {
