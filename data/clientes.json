@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "nombreCompleto": "Juan Pérez",
+        "correo": "juan.perez@example.com",
+        "edad": 30,
+        "usuario": "juanp",
+        "contraseña": "password123",
+        "imagen": "../img/Clientes/cliente-01.jpg"
+    },
+    {
+        "id": "2",
+        "nombreCompleto": "María López",
+        "correo": "maria.lopez@example.com",
+        "edad": 25,
+        "usuario": "marial",
+        "contraseña": "password456",
+        "imagen": "../img/Clientes/cliente-02.jpg"
+    }
+]
