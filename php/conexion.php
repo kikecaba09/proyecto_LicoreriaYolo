@@ -9,5 +9,7 @@ $conn = new mysqli($nombredelservidor, $nombredeusuario, $contrasena, $basededat
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
+}else{
+    die("Conexion exitosa");
 }
 ?>
