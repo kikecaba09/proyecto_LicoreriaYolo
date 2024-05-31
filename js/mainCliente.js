@@ -61,8 +61,10 @@ function cargarClientes(clientesElegidos) {
                 <div class="cliente-detalle">
                     <p class="cliente-contrasena">${cliente.contraseña}</p>
                 </div>
-                <button class="cliente-eliminar" data-id="${cliente.id}">Eliminar</button>
-                <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
+                <div class="clientes-acciones">
+                    <button class="cliente-eliminar" data-id="${cliente.id}">Eliminar</button>
+                    <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
+                </div>
             </div>
         `;
         contenedorClientes.append(div);
