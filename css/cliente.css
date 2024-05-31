@@ -20,24 +20,23 @@ main {
 .contenedor-clientes {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px; /* Ajuste de espaciado entre clientes */
 }
 
 /* Estilos para cada cliente */
 .cliente {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 2px tra #0c0b0b;
-    padding: 20px;
+    border: 2px solid #0c0b0b; /* Corregido el error en la declaración de borde */
     background-color: white;
     border-radius: 5px;
+    padding: 20px;
+    display: flex; /* Mostrar elementos en línea */
+    align-items: center; /* Alinear verticalmente los elementos */
 }
 
 .cliente-header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center; /* Alinea verticalmente los elementos */
     background-color: #030303;
     color: #f8f9fa;
     padding: 10px;
@@ -49,17 +48,13 @@ main {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.cliente-contenido {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
+    margin-right: 20px; /* Espaciado a la derecha para separar la imagen de los detalles */
 }
 
 .cliente-detalle {
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; /* Espaciado a la derecha para separar los detalles */
 }
 
 .cliente-detalle p {
@@ -68,39 +63,33 @@ main {
     color: #555;
 }
 
-/* Añadir estilos al botón de eliminar */
-.cliente-eliminar {
+/* Estilos para botones de acción */
+.botones-acciones {
+    display: flex;
+    flex-direction: column; /* Alinear los botones verticalmente */
+    margin-top: 10px; /* Espaciado hacia arriba para separar los botones */
+}
+
+.cliente-eliminar,
+.cliente-ver-pedidos {
     background-color: #ff4d4d;
     border: none;
     color: white;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
-    align-self: center;
+    margin-top: 5px; /* Espaciado entre botones */
 }
 
-.cliente-eliminar:hover {
+.cliente-eliminar:hover,
+.cliente-ver-pedidos:hover {
     background-color: #ff3333;
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    aside {
-        width: 100%;
-    }
-
-    .cliente-header, .cliente-contenido {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .cliente-imagen {
-        margin-bottom: 10px;
-    }
-
-    .cliente-detalle {
-        margin-left: 0;
+        margin-right: 0; /* Eliminar el margen derecho en dispositivos móviles */
+        margin-bottom: 10px; /* Agregar margen inferior para separar la imagen */
     }
 }

@@ -62,6 +62,7 @@ function cargarClientes(clientesElegidos) {
                     <p class="cliente-contrasena">${cliente.contraseña}</p>
                 </div>
                 <button class="cliente-eliminar" data-id="${cliente.id}">Eliminar</button>
+                <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
             </div>
         `;
         contenedorClientes.append(div);
@@ -70,6 +71,11 @@ function cargarClientes(clientesElegidos) {
     // Añadir manejador de eventos para botones de eliminar
     document.querySelectorAll(".cliente-eliminar").forEach(boton => {
         boton.addEventListener("click", confirmarEliminarCliente);
+    });
+
+    // Añadir manejador de eventos para botones de ver pedidos
+    document.querySelectorAll(".cliente-ver-pedidos").forEach(boton => {
+        boton.addEventListener("click", verPedidosCliente);
     });
 }
 
@@ -97,6 +103,12 @@ function confirmarEliminarCliente(e) {
             );
         }
     });
+}
+
+function verPedidosCliente(e) {
+    const idCliente = e.currentTarget.getAttribute("data-id");
+    const url = `pedidos.html?cliente=${idCliente}`;
+    window.location.href = url;
 }
 
 tituloPrincipal.innerText = "Todos los clientes";
