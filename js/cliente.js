@@ -104,3 +104,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const ageField = document.getElementById('age');
+    const ageError = document.getElementById('ageError');
+
+    ageField.addEventListener('input', function() {
+        const age = ageField.value;
+        if (parseInt(age) < 18) {
+            ageError.style.display = 'block';
+        } else {
+            ageError.style.display = 'none';
+        }
+    });
+});

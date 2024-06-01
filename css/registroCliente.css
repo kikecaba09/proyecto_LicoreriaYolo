@@ -53,6 +53,15 @@ input[type="password"] {
     border-radius: 10px;
 }
 
+#ageError {
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+
 /* Estilos para el botón de envío */
 input[type="submit"] {
     width: 100%;
