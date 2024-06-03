@@ -62,48 +62,16 @@ function cargarClientes(clientesElegidos) {
                     <p class="cliente-contrasena">${cliente.contraseña}</p>
                 </div>
                 <div class="clientes-acciones">
-                    <button class="cliente-eliminar" data-id="${cliente.id}">Eliminar</button>
-                    <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Pedidos</button>
+                    <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
                 </div>
             </div>
         `;
         contenedorClientes.append(div);
     });
 
-    // Añadir manejador de eventos para botones de eliminar
-    document.querySelectorAll(".cliente-eliminar").forEach(boton => {
-        boton.addEventListener("click", confirmarEliminarCliente);
-    });
-
     // Añadir manejador de eventos para botones de ver pedidos
     document.querySelectorAll(".cliente-ver-pedidos").forEach(boton => {
         boton.addEventListener("click", verPedidosCliente);
-    });
-}
-
-function confirmarEliminarCliente(e) {
-    const idCliente = e.currentTarget.getAttribute("data-id");
-    const clienteAEliminar = clientes.find(cliente => cliente.id === idCliente);
-
-    Swal.fire({
-        title: `¿Estás seguro de eliminar a ${clienteAEliminar.nombreCompleto}?`,
-        text: "Esta acción no se puede deshacer",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, eliminar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            clientes = clientes.filter(cliente => cliente.id !== idCliente);
-            cargarClientes(clientes);
-            Swal.fire(
-                'Eliminado!',
-                'El cliente ha sido eliminado.',
-                'success'
-            );
-        }
     });
 }
 

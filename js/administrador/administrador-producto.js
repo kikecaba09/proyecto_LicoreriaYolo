@@ -1,11 +1,17 @@
 let productos = [];
+let idProductoAEliminar = null;
+
+// Cargar el script de SweetAlert2
+const script = document.createElement("script");
+script.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+document.head.appendChild(script);
 
 fetch("../../data/productos.json")
     .then(response => response.json())
     .then(data => {
         productos = data;
         cargarProductos(productos);
-    })
+    });
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const buscarInput = document.querySelector("#buscar");
@@ -43,12 +49,40 @@ function cargarProductos(productosMostrar) {
 function actualizarBotonesEliminar() {
     const botonesEliminar = document.querySelectorAll(".eliminar-producto");
     botonesEliminar.forEach(boton => {
-        boton.addEventListener("click", eliminarProducto);
+        boton.addEventListener("click", (e) => {
+            idProductoAEliminar = e.currentTarget.dataset.id;
+            mostrarModalConfirmacion();
+        });
     });
 }
 
-function eliminarProducto(e) {
-    const idProducto = e.currentTarget.dataset.id;
-    productos = productos.filter(producto => producto.id !== idProducto);
-    cargarProductos(productos);
+function mostrarModalConfirmacion() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            eliminarProductoConfirmado();
+            Swal.fire(
+                'Eliminado!',
+                'El producto ha sido eliminado.',
+                'success'
+            )
+        }
+    });
 }
+
+function eliminarProductoConfirmado() {
+    if (idProductoAEliminar) {
+        productos = productos.filter(producto => producto.id !== idProductoAEliminar);
+        cargarProductos(productos);
+        idProductoAEliminar = null;
+    }
+}
+
