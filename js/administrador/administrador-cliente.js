@@ -62,6 +62,7 @@ function cargarClientes(clientesElegidos) {
                     <p class="cliente-contrasena">${cliente.contraseña}</p>
                 </div>
                 <div class="clientes-acciones">
+                <button class="cliente-eliminar" data-id="${cliente.id}" data-nombre="${cliente.nombreCompleto}">Eliminar</button>
                     <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
                 </div>
             </div>
@@ -73,12 +74,48 @@ function cargarClientes(clientesElegidos) {
     document.querySelectorAll(".cliente-ver-pedidos").forEach(boton => {
         boton.addEventListener("click", verPedidosCliente);
     });
+
+    // Añadir manejador de eventos para botones de eliminar
+    document.querySelectorAll(".cliente-eliminar").forEach(boton => {
+        boton.addEventListener("click", confirmarEliminacionCliente);
+    });
 }
 
 function verPedidosCliente(e) {
     const idCliente = e.currentTarget.getAttribute("data-id");
     const url = `pedidos.html?cliente=${idCliente}`;
     window.location.href = url;
+}
+
+function confirmarEliminacionCliente(e) {
+    const idCliente = e.currentTarget.getAttribute("data-id");
+    const nombreCliente = e.currentTarget.getAttribute("data-nombre");
+    Swal.fire({
+        title: '¿Estás segura?',
+        text: `¿Estás seguro que quieres eliminar a ${nombreCliente}?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            eliminarCliente(idCliente);
+            Swal.fire(
+                'Eliminado!',
+                `El cliente ${nombreCliente} ha sido eliminado.`,
+                'success'
+            );
+        }
+    });
+}
+
+function eliminarCliente(idCliente) {
+    clientes = clientes.filter(cliente => cliente.id !== parseInt(idCliente));
+    cargarClientes(clientes);
+    // Aquí podrías añadir código para hacer la eliminación en el servidor si es necesario
+    // Por ejemplo, usando fetch para hacer una solicitud DELETE
 }
 
 tituloPrincipal.innerText = "Todos los clientes";

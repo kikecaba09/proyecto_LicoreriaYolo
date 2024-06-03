@@ -54,20 +54,24 @@
     background-color: #218838;
 }
 
-
+/* Estilos para el contenedor de productos */
+#contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Espacio entre las columnas */
+}
 
 /* Estilos para los productos */
 .producto {
     display: flex;
-    flex-direction: column; /* Cambiado a columna */
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    flex-direction: column;
+    border: 2px solid #6e6161;
     border-radius: 5px;
 }
 
 .producto-contenido {
     display: flex;
-    align-items: center; /* Centrar los detalles verticalmente */
+    align-items: center;
     padding: 8px;
 }
 
@@ -82,8 +86,8 @@
 .producto-detalles {
     flex: 1;
     display: flex;
+    flex-direction: column; /* Para alinear en columna dentro de cada producto */
     justify-content: space-between;
-    align-items: center;
 }
 
 .producto-titulo {
