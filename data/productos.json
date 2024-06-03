@@ -262,5 +262,38 @@
         },
         "cantidad":"67",
         "precio": 123
+    },
+    {
+        "id": "Otros-07",
+        "titulo": "Antica Sambuca",
+        "imagen": "../../img/Otros/sambuca.jpg",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"23",
+        "precio": 85
+    },
+    {
+        "id": "Otros-07",
+        "titulo": "Ron Fortin",
+        "imagen": "../../img/Otros/fortin.png",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 56
+    },
+    {
+        "id": "cerveza-11",
+        "titulo": "Bud Light",
+        "imagen": "../../img/Cervezas/budLight.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"18",
+        "precio": 9
     }
 ]
