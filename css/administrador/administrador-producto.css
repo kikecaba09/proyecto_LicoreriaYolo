@@ -1,0 +1,87 @@
+/* Estilos para el contenedor de búsqueda */
+#contenedor-busqueda {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el campo de búsqueda */
+#buscar {
+    flex: 1; /* El campo de búsqueda ocupará todo el espacio restante */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #110d0d;
+    border-radius: 5px 0 0 5px; /* Bordes redondeados solo en el lado izquierdo */
+}
+
+/* Estilos para el botón de búsqueda */
+#boton-buscar {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #010202;
+    color: #fff;
+    border: 2px solid #000000;
+    border-radius: 0 5px 5px 0; /* Bordes redondeados solo en el lado derecho */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#boton-buscar:hover {
+    background-color: #13559c;
+}
+
+/* Estilos para los productos */
+.producto {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.producto-contenido {
+    display: flex;
+    align-items: center; /* Centrar los detalles verticalmente */
+    padding: 8px;
+}
+
+.producto-imagen {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.producto-detalles {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto-titulo {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.producto-precio,
+.producto-cantidad {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.eliminar-producto {
+    background-color: #0f0c0d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.eliminar-producto:hover {
+    background-color: #e20829;
+}

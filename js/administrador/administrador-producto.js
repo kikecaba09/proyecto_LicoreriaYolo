@@ -29,7 +29,7 @@ function cargarProductos(productosMostrar) {
                 <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
                 <div class="producto-detalles">
                     <h3 class="producto-titulo">${producto.titulo}</h3>
-                    <p class="producto-precio">Precio: $${producto.precio}.00</p>
+                    <p class="producto-precio">Precio: $${producto.precio}0</p>
                     <p class="producto-cantidad">Cantidad disponible: ${producto.cantidad}</p>
                 </div>
             </div>
