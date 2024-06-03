@@ -2,7 +2,7 @@
     {
         "id": "cerveza-01",
         "titulo": "Cerveza Cristal",
-        "imagen": "../img/Cervezas/cristal.jpeg",
+        "imagen": "../../img/Cervezas/cristal.jpeg",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -13,7 +13,7 @@
     {
         "id": "cerveza-02",
         "titulo": "Corona",
-        "imagen": "../img/Cervezas/corona.jpeg",
+        "imagen": "../../img/Cervezas/corona.jpeg",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -24,7 +24,7 @@
     {
         "id": "cerveza-03",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/pilsen.jpg",
+        "imagen": "../../img/Cervezas/pilsen.jpg",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -35,7 +35,7 @@
     {
         "id": "cerveza-04",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/bugLigth.png",
+        "imagen": "../../img/Cervezas/bugLigth.png",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -46,7 +46,7 @@
     {
         "id": "cerveza-05",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas//candelaria.webp",
+        "imagen": "../../img/Cervezas/candelaria.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -57,7 +57,7 @@
     {
         "id": "cerveza-06",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/cusqueña.webp",
+        "imagen": "../../img/Cervezas/cusqueña.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -68,7 +68,7 @@
     {
         "id": "cerveza-07",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/golden.webp",
+        "imagen": "../../img/Cervezas/golden.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -79,7 +79,7 @@
     {
         "id": "cerveza-08",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/heiniken.webp",
+        "imagen": "../../img/Cervezas/heiniken.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -90,7 +90,7 @@
     {
         "id": "cerveza-09",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/sierraAndina.webp",
+        "imagen": "../../img/Cervezas/sierraAndina.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -101,7 +101,7 @@
     {
         "id": "cerveza-10",
         "titulo": "Pilsen",
-        "imagen": "../img/Cervezas/budweiser.webp",
+        "imagen": "../../img/Cervezas/budweiser.webp",
         "categoria": {
             "nombre": "Cervezas",
             "id": "cervezas"
@@ -112,7 +112,7 @@
     {
         "id": "vino-01",
         "titulo": "Tabernero",
-        "imagen": "../img/Vinos/tabernero.jpeg",
+        "imagen": "../../img/Vinos/tabernero.jpeg",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -123,7 +123,7 @@
     {
         "id": "vino-02",
         "titulo": "Viña Vieja",
-        "imagen": "../img/Vinos/viñaVieja.jpg",
+        "imagen": "../../img/Vinos/viñaVieja.jpg",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -134,7 +134,7 @@
     {
         "id": "vino-03",
         "titulo": "Baileys",
-        "imagen": "../img/Vinos/baileys.jpg",
+        "imagen": "../../img/Vinos/baileys.jpg",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -145,7 +145,7 @@
     {
         "id": "vino-04",
         "titulo": "Rotondo",
-        "imagen": "../img/Vinos/rotondo.png",
+        "imagen": "../../img/Vinos/rotondo.png",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -156,7 +156,7 @@
     {
         "id": "vino-05",
         "titulo": "Rotondo",
-        "imagen": "../img/Vinos/chianti.jpg",
+        "imagen": "../../img/Vinos/chianti.jpg",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -167,7 +167,7 @@
     {
         "id": "vino-06",
         "titulo": "Rotondo",
-        "imagen": "../img/Vinos/queirolo.webp",
+        "imagen": "../../img/Vinos/queirolo.webp",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -178,7 +178,7 @@
     {
         "id": "vino-07",
         "titulo": "Rotondo",
-        "imagen": "../img/Vinos/tarapaca.webp",
+        "imagen": "../../img/Vinos/tarapaca.webp",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -189,7 +189,7 @@
     {
         "id": "vino-08",
         "titulo": "Rotondo",
-        "imagen": "../img/Vinos/vinoTacama.webp",
+        "imagen": "../../img/Vinos/vinoTacama.webp",
         "categoria": {
             "nombre": "Vinos",
             "id": "vinos"
@@ -200,7 +200,7 @@
     {
         "id": "Otros-01",
         "titulo": "Ginebra Andina",
-        "imagen": "../img/Otros/ginebra.jpeg",
+        "imagen": "../../img/Otros/ginebra.jpeg",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
@@ -211,7 +211,7 @@
     {
         "id": "Otros-02",
         "titulo": "Gibson´s",
-        "imagen": "../img/Otros/Gibsons.jpg",
+        "imagen": "../../img/Otros/Gibsons.jpg",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
@@ -222,7 +222,7 @@
     {
         "id": "Otros-03",
         "titulo": "Absolut Vodka",
-        "imagen": "../img/Otros/vodka.webp",
+        "imagen": "../../img/Otros/vodka.webp",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
@@ -233,7 +233,7 @@
     {
         "id": "Otros-04",
         "titulo": "Jagermerfter",
-        "imagen": "../img/Otros/jagermerfter.webp",
+        "imagen": "../../img/Otros/jagermerfter.webp",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
@@ -244,7 +244,7 @@
     {
         "id": "Otros-05",
         "titulo": "Smirnoff",
-        "imagen": "../img/Otros/smirnoff.webp",
+        "imagen": "../../img/Otros/smirnoff.webp",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
@@ -255,7 +255,7 @@
     {
         "id": "Otros-06",
         "titulo": "Sangria",
-        "imagen": "../img/Otros/sangria.jpg",
+        "imagen": "../../img/Otros/sangria.jpg",
         "categoria": {
             "nombre": "Otros",
             "id": "otros"
