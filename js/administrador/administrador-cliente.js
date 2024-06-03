@@ -63,7 +63,7 @@ function cargarClientes(clientesElegidos) {
                 </div>
                 <div class="clientes-acciones">
                 <button class="cliente-eliminar" data-id="${cliente.id}" data-nombre="${cliente.nombreCompleto}">Eliminar</button>
-                    <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Mis Pedidos</button>
+                    <button class="cliente-ver-pedidos" data-id="${cliente.id}">Ver Pedidos</button>
                 </div>
             </div>
         `;

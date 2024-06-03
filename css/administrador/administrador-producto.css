@@ -57,7 +57,7 @@
 /* Estilos para el contenedor de productos */
 #contenedor-productos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px; /* Espacio entre las columnas */
 }
 
@@ -65,7 +65,7 @@
 .producto {
     display: flex;
     flex-direction: column;
-    border: 2px solid #6e6161;
+    border: 2px solid #ccc;
     border-radius: 5px;
 }
 
@@ -76,8 +76,8 @@
 }
 
 .producto-imagen {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     margin-right: 10px;
     border-radius: 5px;

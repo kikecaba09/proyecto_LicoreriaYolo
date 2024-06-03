@@ -34,7 +34,7 @@
     },
     {
         "id": "cerveza-04",
-        "titulo": "Pilsen",
+        "titulo": "Cerveza Bug Light",
         "imagen": "../../img/Cervezas/bugLigth.png",
         "categoria": {
             "nombre": "Cervezas",
@@ -45,7 +45,7 @@
     },
     {
         "id": "cerveza-05",
-        "titulo": "Pilsen",
+        "titulo": "Candelaria",
         "imagen": "../../img/Cervezas/candelaria.webp",
         "categoria": {
             "nombre": "Cervezas",
@@ -56,7 +56,7 @@
     },
     {
         "id": "cerveza-06",
-        "titulo": "Pilsen",
+        "titulo": "Cusqueña",
         "imagen": "../../img/Cervezas/cusqueña.webp",
         "categoria": {
             "nombre": "Cervezas",
@@ -67,7 +67,7 @@
     },
     {
         "id": "cerveza-07",
-        "titulo": "Pilsen",
+        "titulo": "Golden",
         "imagen": "../../img/Cervezas/golden.webp",
         "categoria": {
             "nombre": "Cervezas",
@@ -78,7 +78,7 @@
     },
     {
         "id": "cerveza-08",
-        "titulo": "Pilsen",
+        "titulo": "Heiniken",
         "imagen": "../../img/Cervezas/heiniken.webp",
         "categoria": {
             "nombre": "Cervezas",
@@ -89,7 +89,7 @@
     },
     {
         "id": "cerveza-09",
-        "titulo": "Pilsen",
+        "titulo": "Sierra Andina",
         "imagen": "../../img/Cervezas/sierraAndina.webp",
         "categoria": {
             "nombre": "Cervezas",
@@ -100,7 +100,7 @@
     },
     {
         "id": "cerveza-10",
-        "titulo": "Pilsen",
+        "titulo": "Budweiser",
         "imagen": "../../img/Cervezas/budweiser.webp",
         "categoria": {
             "nombre": "Cervezas",
