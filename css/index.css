@@ -373,6 +373,18 @@ header h1 {
     height: auto;
 }
 
+.cuenta-administrador {
+    font-family: Arial, sans-serif;    /* Fuente */
+    font-size: 16px;                   /* Tamaño de fuente */
+    font-weight: bold;                 /* Grosor de la fuente */
+    text-decoration: underline;        /* Subrayar el texto */
+    color: #ffffff;                    /* Color del texto */
+    padding: 10px 20px;                /* Espaciado interno */
+    margin: 10px;                      /* Espaciado externo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
