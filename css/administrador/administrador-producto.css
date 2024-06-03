@@ -30,6 +30,10 @@
     background-color: #13559c;
 }
 
+.titulo-principal{
+    text-decoration: underline;
+}
+
 /* Estilos para los productos */
 .producto {
     display: flex;
