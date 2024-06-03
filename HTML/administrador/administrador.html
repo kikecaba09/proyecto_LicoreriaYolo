@@ -14,17 +14,28 @@
     <header class="header">
         <nav>
             <ul>
-                <li><a href="#miCuenta" onclick="cargarContenido('../administrador/miCuenta.html')">Mi Cuenta</a></li>
-                <li><a href="#clientes" onclick="cargarContenido('../cliente/cliente.html')">Clientes registrados</a></li>
-                <li><a href="#productos" onclick="cargarContenido('../productos/productos.html')">Productos</a></li>
+                <li><a href="#mi-cuenta">Mi Cuenta</a></li>
+                <li><a href="../cliente/cliente.html">Clientes registrados</a></li>
+                <li><a href="../productos/productos.html">Productos</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
-        <div id="contenido-dinamico">
-            <!-- Contenido dinámico se cargará aquí -->
-        </div>
+        <section id="mi-cuenta">
+            <h1>Mi Cuenta</h1>
+            <div class="profile">
+                <img src="../../img/administrador.png" alt="Mi Foto" class="profile-img">
+                <div class="profile-info">
+                    <p><strong class="titulo">Nombre:</strong> Victor Enrique Cabanillas Rojas</p>
+                    <p><strong class="titulo">Edad:</strong> 23</p>
+                    <p><strong class="titulo">Email:</strong> kikecabanillas0003@gmail.com</p>
+                    <p><strong class="titulo">Teléfono:</strong> 988568967</p>
+                    <p><strong class="titulo">Dirección:</strong> Av. 9 de octubre y Cajamarca 196</p>
+                    <p><strong class="titulo">Rol:</strong> Gerente General</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="footer">
@@ -59,7 +70,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="../../js/administrador/administrador.js"></script>
 </body>
 </html>
