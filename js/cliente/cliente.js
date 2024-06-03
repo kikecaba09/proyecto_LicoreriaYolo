@@ -61,11 +61,18 @@ document.addEventListener('DOMContentLoaded', function() {
             resetRequirement(passwordRequirementItems[1]);
         }
 
-        if (/[!@#$%^&*()_+]/.test(password)) {
+        if (/[0-9]/.test(password)) {
             markRequirementAsMet(passwordRequirementItems[2]);
-            requirementsMet.specialChar = true;
+            requirementsMet.number = true;
         } else {
             resetRequirement(passwordRequirementItems[2]);
+        }
+
+        if (/[!@#$%^&*()_+]/.test(password)) {
+            markRequirementAsMet(passwordRequirementItems[3]);
+            requirementsMet.specialChar = true;
+        } else {
+            resetRequirement(passwordRequirementItems[3]);
         }
     }
 
