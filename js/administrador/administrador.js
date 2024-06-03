@@ -5,6 +5,6 @@ function cargarContenido(seccion) {
             document.getElementById("contenido-dinamico").innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", seccion + ".html", true);
+    xhttp.open("GET", seccion, true);
     xhttp.send();
 }
