@@ -4,7 +4,7 @@ function login() {
 
     // Hacer la solicitud AJAX para cargar los datos de los clientes desde el archivo JSON
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../../data/clientes.json', true);
+    xhr.open('GET', '../data/clientes.json', true);
     xhr.onload = function () {
         if (xhr.status === 200) {
             // Parsear los datos JSON
@@ -26,7 +26,7 @@ function login() {
             if (authenticated) {
                 loginMessage.textContent = 'Inicio de sesión exitoso';
                 // Redirigir al menú con el ID del cliente
-                window.location.href = "menu.html?idCliente=" + clientId;
+                window.location.href = "/HTML/cliente/MenuCliente/menu.html?idCliente=" + clientId;
             } else {
                 loginMessage.textContent = 'Nombre de usuario o contraseña incorrectos';
             }
