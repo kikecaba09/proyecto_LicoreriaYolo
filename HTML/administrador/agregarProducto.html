@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Producto</title>
+    <link rel="stylesheet" href="../../css/administrador/agregarProducto.css">
 </head>
 <body>
     <h2>Agregar Producto</h2>
@@ -11,11 +12,11 @@
         <label for="id">ID:</label><br>
         <input type="text" id="id" name="id" required><br>
         
-        <label for="titulo">Título:</label><br>
+        <label for="titulo">Nombre del producto:</label><br>
         <input type="text" id="titulo" name="titulo" required><br>
         
-        <label for="imagen">Imagen (URL):</label><br>
-        <input type="text" id="imagen" name="imagen" required><br>
+        <label for="imagen">Imagen:</label><br>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
         
         <label for="categoria">Categoría:</label><br>
         <select id="categoria" name="categoria" required>
