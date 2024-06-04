@@ -7,34 +7,51 @@ body {
     min-height: 100vh;
 }
 
-.header{
-    padding: 20px 0;
-    border-bottom: 3px solid #070606; /* Línea debajo del menú */
-    align-self: center; /* Centra el encabezado horizontalmente */
-}
-
-.header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.header {
     display: flex;
-    justify-content: center; /* Centra los elementos del menú horizontalmente */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    justify-content: space-between; /* Distribuye los elementos para que ocupen toda la fila */
+    width: 100%; /* Asegura que el encabezado ocupe toda la anchura */
+    padding: 10px 20px; /* Añade un poco de espacio alrededor del contenido */
+    background-color: #f8f9fa; /* Fondo opcional para el encabezado */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total del elemento */
 }
 
-.header nav ul li {
-    margin: 0 15px;
+/* Estilo de la imagen del logo */
+.header img.lgo {
+    height: 50px; /* Ajusta la altura del logo según sea necesario */
+    width: auto; /* Mantén la proporción del logo */
 }
 
-.header nav ul li a {
-    text-decoration: none;
-    color: #271f1f;
-    font-size: 18px; /* Tamaño del texto del menú */
-    font-weight: bold; /* Negrita */
-    transition: color 0.3s ease; /* Transición suave del color */
+/* Estilo del contenedor de navegación */
+.header nav {
+    /* No necesitas flex-grow aquí, solo asegúrate de que el nav se alinee a la derecha */
 }
 
-.header nav ul li a:hover {
-    color: #a02424; /* Color al pasar el cursor */
+/* Estilo de la lista del menú de navegación */
+.menu-nav {
+    display: flex;
+    list-style: none; /* Elimina las viñetas de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo de los elementos de la lista */
+.menu-nav li {
+    margin-left: 20px; /* Espacio entre los elementos del menú */
+}
+
+/* Estilo de los enlaces del menú */
+.menu-nav a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #000; /* Ajusta el color del texto del enlace */
+    font-weight: bold; /* Opcional: hace que el texto del enlace sea negrita */
+    padding: 10px; /* Espacio dentro de los enlaces */
+}
+
+/* Opcional: cambia el color del enlace al pasar el cursor */
+.menu-nav a:hover {
+    color: #007bff; /* Ajusta el color del texto del enlace al pasar el cursor */
 }
 
 .container {
