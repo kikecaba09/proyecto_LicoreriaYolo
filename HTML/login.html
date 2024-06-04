@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>INICIO SESIÓN</title>
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <div class="container-form register">
+        <div class="information">
+            <div class="info-childs">
+                <h2>YOLO</h2>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Login</h2>
+                
+                <p>Ingrese sus credenciales</p>
+                <form class="form form-register" onsubmit="validateLogin(event)" novalidate>
+                    <div>
+                        <h4>Ingrese el nombre de usuario</h4>
+                        <br>
+                        <label>
+                            <i class='bx bx-user'></i>
+                            <input type="text" placeholder="Nombre Usuario" name="userName" required>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <h4>Ingrese su contraseña</h4>
+                        <br>
+                        <label>
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" placeholder="Contraseña" name="userPassword" required>
+                        </label>
+                    </div>   
+                    <input type="submit" value="Iniciar sesión">
+                </form>
+                <br>
+                <p>¿No tienes cuenta? <a href="../HTML/cliente/registroCliente.html">Regístrate ahora</a></p> <!-- Enlace para registrarse -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

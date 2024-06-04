@@ -1,0 +1,299 @@
+[
+    {
+        "id": "cerveza-01",
+        "titulo": "Cerveza Cristal",
+        "imagen": "../../img/Cervezas/cristal.jpeg",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 7.50
+    },
+    {
+        "id": "cerveza-02",
+        "titulo": "Corona",
+        "imagen": "../../img/Cervezas/corona.jpeg",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"10",
+        "precio": 5
+    },
+    {
+        "id": "cerveza-03",
+        "titulo": "Pilsen",
+        "imagen": "../../img/Cervezas/pilsen.jpg",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-04",
+        "titulo": "Cerveza Bug Light",
+        "imagen": "../../img/Cervezas/bugLigth.png",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-05",
+        "titulo": "Candelaria",
+        "imagen": "../../img/Cervezas/candelaria.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-06",
+        "titulo": "Cusqueña",
+        "imagen": "../../img/Cervezas/cusqueña.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-07",
+        "titulo": "Golden",
+        "imagen": "../../img/Cervezas/golden.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-08",
+        "titulo": "Heiniken",
+        "imagen": "../../img/Cervezas/heiniken.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-09",
+        "titulo": "Sierra Andina",
+        "imagen": "../../img/Cervezas/sierraAndina.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "cerveza-10",
+        "titulo": "Budweiser",
+        "imagen": "../../img/Cervezas/budweiser.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"15",
+        "precio": 8
+    },
+    {
+        "id": "vino-01",
+        "titulo": "Tabernero",
+        "imagen": "../../img/Vinos/tabernero.jpeg",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 25
+    },
+    {
+        "id": "vino-02",
+        "titulo": "Viña Vieja",
+        "imagen": "../../img/Vinos/viñaVieja.jpg",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 63
+    },
+    {
+        "id": "vino-03",
+        "titulo": "Baileys",
+        "imagen": "../../img/Vinos/baileys.jpg",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 35
+    },
+    {
+        "id": "vino-04",
+        "titulo": "Rotondo",
+        "imagen": "../../img/Vinos/rotondo.png",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 120
+    },
+    {
+        "id": "vino-05",
+        "titulo": "Rotondo",
+        "imagen": "../../img/Vinos/chianti.jpg",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 120
+    },
+    {
+        "id": "vino-06",
+        "titulo": "Rotondo",
+        "imagen": "../../img/Vinos/queirolo.webp",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 120
+    },
+    {
+        "id": "vino-07",
+        "titulo": "Rotondo",
+        "imagen": "../../img/Vinos/tarapaca.webp",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 120
+    },
+    {
+        "id": "vino-08",
+        "titulo": "Rotondo",
+        "imagen": "../../img/Vinos/vinoTacama.webp",
+        "categoria": {
+            "nombre": "Vinos",
+            "id": "vinos"
+        },
+        "cantidad":"15",
+        "precio": 120
+    },
+    {
+        "id": "Otros-01",
+        "titulo": "Ginebra Andina",
+        "imagen": "../../img/Otros/ginebra.jpeg",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 45
+    },
+    {
+        "id": "Otros-02",
+        "titulo": "Gibson´s",
+        "imagen": "../../img/Otros/Gibsons.jpg",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 12
+    },
+    {
+        "id": "Otros-03",
+        "titulo": "Absolut Vodka",
+        "imagen": "../../img/Otros/vodka.webp",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 55
+    },
+    {
+        "id": "Otros-04",
+        "titulo": "Jagermerfter",
+        "imagen": "../../img/Otros/jagermerfter.webp",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 55
+    },
+    {
+        "id": "Otros-05",
+        "titulo": "Smirnoff",
+        "imagen": "../../img/Otros/smirnoff.webp",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"20",
+        "precio": 24
+    },
+    {
+        "id": "Otros-06",
+        "titulo": "Sangria",
+        "imagen": "../../img/Otros/sangria.jpg",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"67",
+        "precio": 123
+    },
+    {
+        "id": "Otros-07",
+        "titulo": "Antica Sambuca",
+        "imagen": "../../img/Otros/sambuca.jpg",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"23",
+        "precio": 85
+    },
+    {
+        "id": "Otros-07",
+        "titulo": "Ron Fortin",
+        "imagen": "../../img/Otros/fortin.png",
+        "categoria": {
+            "nombre": "Otros",
+            "id": "otros"
+        },
+        "cantidad":"15",
+        "precio": 56
+    },
+    {
+        "id": "cerveza-11",
+        "titulo": "Bud Light",
+        "imagen": "../../img/Cervezas/budLight.webp",
+        "categoria": {
+            "nombre": "Cervezas",
+            "id": "cervezas"
+        },
+        "cantidad":"18",
+        "precio": 9
+    }
+]

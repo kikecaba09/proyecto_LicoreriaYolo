@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "nombreCompleto": "Victor Enrique Cabanillas Rojas",
+        "edad": 23,
+        "correo": "kikecabanillas0003@gmail.com",
+        "telefono": 988568967,
+        "direccion": "Av. 9 de octubre y Cajamarca 196",
+        "rol": "Gerente General",
+        "usuario": "Victor12",
+        "contraseña": "P@ssw0rd1",
+        "imagen": "../img/administrador.png"
+    }
+]

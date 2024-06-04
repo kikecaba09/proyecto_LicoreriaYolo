@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header{
+    padding: 20px 0;
+    border-bottom: 3px solid #070606; /* Línea debajo del menú */
+    align-self: center; /* Centra el encabezado horizontalmente */
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú horizontalmente */
+}
+
+.header nav ul li {
+    margin: 0 15px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #271f1f;
+    font-size: 18px; /* Tamaño del texto del menú */
+    font-weight: bold; /* Negrita */
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.header nav ul li a:hover {
+    color: #a02424; /* Color al pasar el cursor */
+}
+
+.container {
+    margin: auto; /* Centra el contenedor horizontalmente */
+    max-width: 800px;
+    padding: 20px;
+}
+
+.h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    margin-right: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.titulo {
+    font-weight: bold;
+    text-decoration: underline;
+}
