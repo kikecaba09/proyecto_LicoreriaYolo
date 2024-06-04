@@ -7,9 +7,10 @@ body {
     min-height: 100vh;
 }
 
+/* Asegura que el contenedor del encabezado ocupe toda la anchura de la página */
 .header {
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos al centro */
+    /* Alinea verticalmente los elementos al centro */
     justify-content: space-between; /* Distribuye los elementos para que ocupen toda la fila */
     width: 100%; /* Asegura que el encabezado ocupe toda la anchura */
     padding: 10px 20px; /* Añade un poco de espacio alrededor del contenido */
@@ -23,10 +24,6 @@ body {
     width: auto; /* Mantén la proporción del logo */
 }
 
-/* Estilo del contenedor de navegación */
-.header nav {
-    /* No necesitas flex-grow aquí, solo asegúrate de que el nav se alinee a la derecha */
-}
 
 /* Estilo de la lista del menú de navegación */
 .menu-nav {
@@ -53,6 +50,7 @@ body {
 .menu-nav a:hover {
     color: #007bff; /* Ajusta el color del texto del enlace al pasar el cursor */
 }
+
 
 .container {
     margin: auto; /* Centra el contenedor horizontalmente */
