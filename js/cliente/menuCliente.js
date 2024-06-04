@@ -18,8 +18,12 @@ if (menuItems.hasOwnProperty(clientId)) {
     menuItems[clientId].forEach(function(item) {
         var listItem = document.createElement('li');
         var link = document.createElement('a');
-        link.href = "#" + item.replace(" ", "-").toLowerCase(); // Cambiar espacios a guiones y convertir a minúsculas para el hash
         link.textContent = item;
+        // Agregar el evento de clic a cada elemento del menú
+        link.addEventListener('click', function() {
+            // Redirigir a la página de información del cliente con el ID del cliente en la URL
+            window.location.href = "../../HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
+        });
         listItem.appendChild(link);
         menuList.appendChild(listItem);
     });
