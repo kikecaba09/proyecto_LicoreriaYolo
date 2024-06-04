@@ -10,6 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/login.css">
     <title>INICIO SESIÓN</title>
+    <script src="../js/login.js" defer></script>
 </head>
 <body>
     <div class="container-form register">
@@ -23,13 +24,13 @@
                 <h2>Login</h2>
                 
                 <p>Ingrese sus credenciales</p>
-                <form class="form form-register" novalidate>
+                <form class="form form-register" onsubmit="validateLogin(event)" novalidate>
                     <div>
                         <h4>Ingrese el nombre de usuario</h4>
                         <br>
                         <label>
-                            <i class='bx bx-user' ></i>
-                            <input type="text" placeholder="Nombre Usuario" name="userName" >
+                            <i class='bx bx-user'></i>
+                            <input type="text" placeholder="Nombre Usuario" name="userName" required>
                         </label>
                     </div>
                     
@@ -37,10 +38,10 @@
                         <h4>Ingrese su contraseña</h4>
                         <br>
                         <label>
-                            <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Contraseña" name="userPassword">
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" placeholder="Contraseña" name="userPassword" required>
                         </label>
-                </div>   
+                    </div>   
                     <input type="submit" value="Iniciar sesión">
                 </form>
                 <br>
