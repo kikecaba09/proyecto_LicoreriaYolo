@@ -28,14 +28,8 @@ if (menuItems.hasOwnProperty(clientId)) {
         link.textContent = item;
         // Agregar el evento de clic a cada elemento del menú
         link.addEventListener('click', function() {
-            // Redirigir a la página correspondiente según el elemento seleccionado
-            if (item === "Ver información de la cuenta") {
-                window.location.href = "/HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
-            } else if (item === "Comprar productos") {
-                window.location.href = "../../HTML/cliente/MenuCliente/comprar.html?idCliente=" + clientId;
-            } else if (item === "Ver pedidos") {
-                window.location.href = "../../HTML/cliente/MenuCliente/pedidos.html?idCliente=" + clientId;
-            }
+            // Redirigir a la página de información del cliente con el ID del cliente en la URL
+            window.location.href = "../../HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
         });
         listItem.appendChild(link);
         menuList.appendChild(listItem);
