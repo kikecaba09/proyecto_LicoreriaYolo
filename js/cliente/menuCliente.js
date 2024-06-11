@@ -2,70 +2,27 @@
 var urlParams = new URLSearchParams(window.location.search);
 var clientId = urlParams.get('idCliente');
 
-// Definir los elementos del menú y nombres para cada cliente
+// Definir los elementos del menú para cada cliente
 var menuItems = {
-    "1": { 
-        "name": "Carlos", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    "2": { 
-        "name": "María", 
-        "items": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"] 
-    },
-    // Agregar más clientes según sea necesario
+    "1": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "2": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    // Agregar más clientes y elementos del menú según sea necesario
 };
 
-// Obtener la lista de menú y el mensaje de bienvenida
+// Obtener la lista de menú
 var menuList = document.getElementById('menu-list');
-var welcomeMessage = document.getElementById('welcome-message');
 
 // Verificar si el cliente tiene elementos de menú asociados
 if (menuItems.hasOwnProperty(clientId)) {
-    // Obtener el nombre del cliente
-    var clientName = menuItems[clientId].name;
-    
-    // Mostrar el mensaje de bienvenida con el nombre del cliente
-    welcomeMessage.textContent += ", " + clientName;
-
     // Crear elementos de lista para cada elemento del menú
-    menuItems[clientId].items.forEach(function(item) {
+    menuItems[clientId].forEach(function(item) {
         var listItem = document.createElement('li');
         var link = document.createElement('a');
         link.textContent = item;
         // Agregar el evento de clic a cada elemento del menú
         link.addEventListener('click', function() {
-            // Reemplazar espacios en el nombre por guiones bajos para la URL
-            var formattedName = clientName.replace(/\s+/g, '_');
-            // Redirigir a la página de información del cliente con el nombre del cliente en la URL
-            window.location.href = "../../HTML/cliente/MenuCliente/cuenta.html?nombreCliente=" + formattedName;
+            // Redirigir a la página de información del cliente con el ID del cliente en la URL
+            window.location.href = "../../HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
         });
         listItem.appendChild(link);
         menuList.appendChild(listItem);
