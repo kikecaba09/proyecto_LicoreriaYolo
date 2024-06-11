@@ -21,17 +21,17 @@ xhr.onload = function() {
         });
 
         if (cliente) {
-            // Mostrar el nombre completo y la imagen del cliente en la página
+            // Mostrar el nombre completo del cliente en la página
             clientNameElement.textContent = cliente.nombreCompleto;
 
-            // Si existe una imagen del cliente, agregarla a la página
+            // Mostrar la imagen del cliente si está disponible
             if (cliente.imagen) {
                 clientImageElement.src = cliente.imagen;
                 clientImageElement.alt = `Imagen de ${cliente.nombreCompleto}`;
+                clientImageElement.style.display = 'block'; // Mostrar la imagen
             }
 
             // Crear elementos de lista para cada elemento del menú
-            // Aquí deberías definir los elementos del menú específicos del cliente
             var menuItems = [
                 { nombre: "Ver información de la cuenta", url: "../../HTML/cliente/MenuCliente/cuenta.html" },
                 { nombre: "Comprar productos", url: "../../HTML/cliente/MenuCliente/comprar.html" },
