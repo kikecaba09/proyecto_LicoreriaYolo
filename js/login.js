@@ -12,18 +12,18 @@ function login() {
 
             // Verificar las credenciales de los clientes
             var authenticated = false;
-            var clientName = null;
+            var clientId = null;
             for (var i = 0; i < clientes.length; i++) {
                 if (clientes[i].usuario === userName && clientes[i].contraseña === userPassword) {
                     authenticated = true;
-                    clientName = encodeURIComponent(clientes[i].nombre); // Encode para evitar problemas con caracteres especiales
+                    clientId = clientes[i].id;
                     break;
                 }
             }
 
-            // Si las credenciales de cliente son válidas, redirigir al menú de cliente con el nombre
+            // Si las credenciales de cliente son válidas, redirigir al menú de cliente
             if (authenticated) {
-                window.location.href = "/HTML/cliente/MenuCliente/menu.html?nombreCliente=" + clientName;
+                window.location.href = "/HTML/cliente/MenuCliente/menu.html?idCliente=" + clientId;
                 return;
             }
 
