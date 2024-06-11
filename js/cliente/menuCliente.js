@@ -30,7 +30,7 @@ function displayMenu(menu) {
 }
 
 // Cargar el archivo JSON de clientes
-fetch('/data/clientes.json')
+fetch('../../data/clientes.json')
     .then(function(response) {
         return response.json();
     })
