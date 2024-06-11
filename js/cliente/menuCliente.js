@@ -6,6 +6,13 @@ var clientId = urlParams.get('idCliente');
 var menuItems = {
     "1": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
     "2": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "3": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "4": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "5": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "6": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "7": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "8": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
+    "9": ["Ver información de la cuenta", "Comprar productos", "Ver pedidos"],
     // Agregar más clientes y elementos del menú según sea necesario
 };
 
@@ -21,8 +28,14 @@ if (menuItems.hasOwnProperty(clientId)) {
         link.textContent = item;
         // Agregar el evento de clic a cada elemento del menú
         link.addEventListener('click', function() {
-            // Redirigir a la página de información del cliente con el ID del cliente en la URL
-            window.location.href = "../../HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
+            // Redirigir a la página correspondiente según el elemento seleccionado
+            if (item === "Ver información de la cuenta") {
+                window.location.href = "/HTML/cliente/MenuCliente/cuenta.html?idCliente=" + clientId;
+            } else if (item === "Comprar productos") {
+                window.location.href = "../../HTML/cliente/MenuCliente/comprar.html?idCliente=" + clientId;
+            } else if (item === "Ver pedidos") {
+                window.location.href = "../../HTML/cliente/MenuCliente/pedidos.html?idCliente=" + clientId;
+            }
         });
         listItem.appendChild(link);
         menuList.appendChild(listItem);
