@@ -1,15 +1,18 @@
 <?php
 
-$nombredelservidor = "localhost:8080";
-$nombredeusuario = "root";
-$contrasena = "";
-$basededatos = "licoreriayolo";
+$host = 'localhost'; 
+$usuario = 'root'; 
+$contraseña = ''; 
+$baseDeDatos = 'licoreriayolo'; 
+$puerto = 3308; 
 
-$conn = new mysqli($nombredelservidor, $nombredeusuario, $contrasena, $basededatos);
+$conexion = new mysqli($host, $usuario, $contraseña, $baseDeDatos, $puerto);
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}else{
-    die("Conexion exitosa");
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
+
+echo "Conexión exitosa a la base de datos.";
+
+$conexion->close();
 ?>
