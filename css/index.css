@@ -1,6 +1,8 @@
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
-:root{
+/* Variables de color */
+:root {
     --clr-main: #000000;
     --clr-main-light: #282630;
     --clr-white: #ececec;
@@ -8,14 +10,16 @@
     --clr-red: #961818;
 }
 
+/* Estilos generales */
 body {
     font-family: 'Poppins', sans-serif;
-    display: grid;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: var(--clr-white);
     color: var(--clr-main);
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 a {
@@ -28,11 +32,13 @@ a:hover {
     color: #ff4081;
 }
 
+/* Contenedor principal */
 .container {
     display: flex;
     transition: transform 0.3s ease-in-out;
 }
 
+/* Barra lateral */
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -89,7 +95,7 @@ a:hover {
     border-left: 4px solid #ffeb3b;
 }
 
-/* Button to Show Sidebar */
+/* Botón para mostrar la barra lateral */
 button {
     background: none;
     border: none;
@@ -105,11 +111,7 @@ button img {
     width: 40px;
 }
 
-.logo img {
-    width: 200px;
-    height: 150px;
-}
-
+/* Encabezado */
 header {
     background-color: #c4c3c0;
     padding: 20px 30px;
@@ -130,105 +132,101 @@ header h1 {
 
 .login {
     display: inline-block;
-    background-color: #fffcfc; 
+    background-color: #fffcfc;
     padding: 22px 30px;
-    border-radius: 50px; 
+    border-radius: 50px;
     border: 2px solid #333;
 }
 
 .login i {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .login a {
-    color: #333; /* Color del texto */
-    text-decoration: none; /* Eliminar subrayado del enlace */
-    font-weight: bold; /* Texto en negrita */
+    color: #333;
+    font-weight: bold;
 }
 
-/* Estilos para el efecto hover en el enlace de inicio de sesión */
 .login a:hover {
-    color: #cea902; /* Cambiar color al pasar el cursor */
+    color: #cea902;
 }
 
 .login:hover {
-    box-shadow: 0 0 0 4px #f36f04; 
+    box-shadow: 0 0 0 4px #f36f04;
 }
 
+/* Menú principal */
 .menu {
-    list-style-type: none; /* Quita los marcadores de lista */
-    padding: 0; /* Elimina el relleno predeterminado */
-    margin: 0; /* Elimina el margen predeterminado */
-    text-align: center; /* Centra los elementos de la lista */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .menu li {
-    display: inline-block; 
-    margin-right: 10px; 
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .menu li a {
-    text-decoration: none; 
-    color: #f8efef; 
+    text-decoration: none;
+    color: #f8efef;
     font-weight: bold;
-    display: inline-block; 
-    padding: 10px 20px; 
-    background-color: #000; 
-    border-radius: 10px; 
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    border-radius: 10px;
 }
 
 .menu li a:hover {
-    background-color: #7508f1; 
-    color: #c54b4b; 
+    background-color: #7508f1;
+    color: #c54b4b;
 }
 
-/* Banner Styles */
+/* Banner */
+.banner {
+    background-image: url('../img/licoreria.jpg');
+    height: 40rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
 .content-banner {
-	max-width: 90rem;
-	margin: 0 auto;
-	padding: 15rem 0;
+    max-width: 90rem;
+    margin: 0 auto;
 }
 
 .content-banner p {
-	color: #fffbfb;
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-	font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .content-banner h2 {
-	color: #fff;
-	font-size: 2.5rem;
-	font-weight: bold;
-	line-height: 1.2;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 .content-banner a {
-    display: inline-block; /* Mostrar como bloque en línea */
-    padding: 20px 30px; /* Rellenar el botón */
-    background-color: #ff5722; /* Color de fondo del botón */
-    color: #fff; /* Color de texto del botón */
-    text-decoration: none; /* Quitar subrayado del enlace */
-    border-radius: 50px; /* Borde redondeado del botón */
+    display: inline-block;
+    padding: 20px 30px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
     font-weight: bold;
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    transition: background-color 0.3s;
 }
 
-/* Estilos para el enlace al pasar el cursor */
 .content-banner a:hover {
-    background-color: #020101; /* Cambiar color de fondo al pasar el cursor */
+    background-color: #020101;
 }
-
-/* Estilos para el contenido que se oculta/inicia oculto */
-.content {
-    display: none;
-}
-
-/* Estilos para mostrar el contenido cuando la clase 'active' está presente */
-.content.active {
-    display: block;
-}
-
 
 /* Nosotros Section */
 .nosotros {
@@ -269,38 +267,36 @@ header h1 {
     display: block;
 }
 
+/* Preguntas Frecuentes Section */
+.preguntasFrecuentes {
+    padding: 20px;
+    background-color: var(--clr-white);
+}
 
-/* Preguntas Frecuentes ESTILOS /*
-
-/* Estilo para centrar el título */
 .titulo-centrado {
     text-align: center;
 }
 
-/* Estilo para las columnas */
 .columnas {
     display: flex;
     justify-content: space-between;
 }
 
-/* Estilo para cada columna */
 .columna {
-    flex-basis: calc(33.33% - 20px); /* Dividir en 3 columnas con margen */
-    margin-right: 20px; /* Espacio entre columnas */
+    flex-basis: calc(33.33% - 20px);
+    margin-right: 20px;
 }
 
-/* Estilo para cada pregunta */
 .faq-item {
-    border: 3px solid #0c0b0b; /* Borde sólido de color gris */
-    padding: 10px; /* Espacio interno dentro del borde */
-    margin-bottom: 20px; /* Espacio entre preguntas */
-    min-height: 100px; /* Altura mínima para cada pregunta */
-    box-sizing: border-box; /* Incluir tamaño del borde y relleno en el ancho y alto */
+    border: 3px solid #0c0b0b;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    box-sizing: border-box;
     border-radius: 50px;
 }
 
-
-/* Footer Styles */
+/* Footer */
 .footer {
     background-color: var(--clr-main);
     color: #fff;
@@ -318,27 +314,28 @@ header h1 {
 
 .columna {
     flex: 1;
-    margin: 0 70px; 
+    margin: 0 70px;
 }
 
-.social-icons{
-	display: flex;
-	gap: 1.5rem;
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
 }
 
-.social-icons span{
-	border-radius: 50%;
-	width: 3rem;
-	height: 3rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.social-icons span {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.social-icons span i{
-	color: #fff;
-	font-size: 1.2rem;
+.social-icons span i {
+    color: #fff;
+    font-size: 1.2rem;
 }
+
 .social-icons {
     margin-bottom: 20px;
 }
@@ -347,20 +344,20 @@ header h1 {
     margin-right: 10px;
 }
 
-.facebook{
-	background-color: #3b5998;
+.facebook {
+    background-color: #3b5998;
 }
 
-.twitter{
-	background-color: #00acee;
+.twitter {
+    background-color: #00acee;
 }
 
-.youtube{
-	background-color: #c4302b;
+.youtube {
+    background-color: #c4302b;
 }
 
 .instagram {
-	background: linear-gradient(#405de6,#833ab4,#c13584,#e1306c,#fd1d1d,#f56040,#fcaf45);
+    background: linear-gradient(#405de6, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #fcaf45);
 }
 
 .contact-info ul {
@@ -375,38 +372,92 @@ header h1 {
 }
 
 .cuenta-administrador {
-    font-family: Arial, sans-serif;    /* Fuente */
-    font-size: 16px;                   /* Tamaño de fuente */
-    font-weight: bold;                 /* Grosor de la fuente */
-    text-decoration: underline;        /* Subrayar el texto */
-    color: #ffffff;                    /* Color del texto */
-    padding: 10px 20px;                /* Espaciado interno */
-    margin: 10px;                      /* Espaciado externo */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transición */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
+/* Estilos responsivos para laptop */
+@media (max-width: 1024px) {
+    body {
+        font-size: 14px;
     }
 
     .sidebar {
-        width: 100%;
-        left: -100%;
+        width: 200px;
+        left: -200px;
+        padding-top: 60px;
     }
 
     .container.show .sidebar {
         left: 0;
     }
 
+    .sidebar img {
+        width: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar ul li {
+        margin: 10px 0;
+    }
+
+    .sidebar ul li a {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
     .menu {
+        text-align: center;
         flex-direction: column;
         align-items: center;
     }
 
     .menu li {
         margin: 10px 0;
+    }
+
+    .menu li a {
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+
+    .nosotros .item {
+        margin-bottom: 10px;
+    }
+
+    .toggle {
+        padding: 8px;
+    }
+
+    .content {
+        padding: 8px;
+    }
+
+    .columnas {
+        flex-direction: column;
+    }
+
+    .columna {
+        flex-basis: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        padding: 15px;
     }
 }
