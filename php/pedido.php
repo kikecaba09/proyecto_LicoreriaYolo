@@ -1,4 +1,5 @@
 <?php
+
 include("conexion.php");
 
 if(isset($_POST['registroPedido'])){
@@ -20,8 +21,24 @@ if(isset($_POST['registroPedido'])){
         $comentario = trim($_POST['comentario']);
         $fecha = date("d/m/y");
 
-        
+        $consulta = "INSERT INTO pedido(nombreCompleto,telefono,direccion,producto,cantidad,metodoPago,
+        comentario) VALUE ('$nombreCompleto','$telefono','$direccion','$producto','$cantidad',
+        '$metodoPago','$comentario')";
+        $resultado = mysqli_connect($conexion, $consulta);
+
+        if($resultado){
+            ?>
+            <h3 class="success">Tu pedido se a completado</h3>
+            <?php
+        }else{
+            ?>
+            <h3 class="error">Ocurrio un error en el registro</h3>
+            <?php
+        }
+    }else{
+        ?>
+        <h3 class="error">Llena todos los campos</h3>
+        <?php
     }
-    
 }
 ?>
