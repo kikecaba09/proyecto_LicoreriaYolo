@@ -23,7 +23,7 @@ function login() {
 
             // Si las credenciales de cliente son válidas, redirigir al menú de cliente
             if (authenticated) {
-                window.location.href = "/HTML/cliente/MenuCliente/menu.html?idCliente=" + clientId;
+                window.location.href = "/proyecto_LicoreriaYolo/HTML/cliente/MenuCliente/menu.html?idCliente=" + clientId;
                 return;
             }
 
@@ -38,7 +38,7 @@ function login() {
                     // Verificar las credenciales del administrador
                     if (administrador.usuario === userName && administrador.contraseña === userPassword) {
                         // Credenciales de administrador válidas, redirigir al menú de administrador
-                        window.location.href = "/HTML/administrador/administrador.html";
+                        window.location.href = "//HTML/administrador/administrador.html";
                     } else {
                         // Credenciales de administrador inválidas, mostrar mensaje de error
                         var loginMessage = document.getElementById('loginMessage');

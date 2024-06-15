@@ -12,7 +12,6 @@ if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
-echo "Conexión exitosa a la base de datos.";
-
-$conexion->close();
+// No cierres la conexión aquí
+// echo "Conexión exitosa a la base de datos.";
 ?>
