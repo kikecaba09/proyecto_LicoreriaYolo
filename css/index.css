@@ -270,7 +270,7 @@ header h1 {
 /* Preguntas Frecuentes Section */
 .preguntasFrecuentes {
     padding: 20px;
-    background-color: var(--clr-white);
+    background-color: #beb4b4;
 }
 
 .titulo-centrado {
