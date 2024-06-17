@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -13,11 +14,64 @@ body {
     margin-top: 30px;
 }
 
-.nav-link.active {
-    background-color: #0f1113;
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+}
+
+.nav-pills .nav-link {
+    color: #007bff;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
     color: #fff;
 }
 
+.table td {
+    background-color: #fff;
+}
+
+.table img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Estilos específicos para el contenido dinámico */
 #contenido {
+    margin-top: 20px;
+}
+
+#infoAdmin {
+    margin-top: 20px;
+}
+
+#clientesRegistrados {
+    margin-top: 20px;
+}
+
+#productos {
     margin-top: 20px;
 }
