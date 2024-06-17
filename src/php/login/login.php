@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-require_once 'conexion.php';
+require_once '../conexion.php';
 
 // Iniciar sesión
 session_start();
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Iniciar sesión como cliente
         $_SESSION['usuario'] = $usuario;
         $_SESSION['tipo_usuario'] = 'cliente';
-        header("location: ../HTML/cliente/menuCliente.html"); // Redirigir al menú de cliente
+        header("location: /proyecto_LicoreriaYolo/src/html/cliente/menuCliente.html"); // Redirigir al menú de cliente
         exit();
     } 
     // Verificar si el usuario es administrador
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Iniciar sesión como administrador
         $_SESSION['usuario'] = $usuario;
         $_SESSION['tipo_usuario'] = 'administrador';
-        header("location: ../HTML/administrador/administrador.html"); // Redirigir a la página de administrador
+        header("location: /proyecto_LicoreriaYolo/src/html/administrador/administrador.html"); // Redirigir a la página de administrador
         exit();
     } 
     else {
