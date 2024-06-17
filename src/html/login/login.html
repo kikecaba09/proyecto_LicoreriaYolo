@@ -18,24 +18,20 @@
         <div class="form-information">
             <div class="form-information-childs">
                 <h2>Login</h2>
-                
                 <p>Ingrese sus credenciales</p>
-                <form action="../../php/login/" method="POST" class="form form-register">
+                <form action="../../php/login/login.php" method="POST" class="form form-register" onsubmit="return validarFormulario()">
                     <div>
-                        <h4>Ingrese el nombre de usuario</h4>
-                        <br>
+                        <h4>Ingrese el nombre de usuario</h4><br>
                         <label>
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nombre Usuario" id="userName" name="usuario">
+                            <input type="text" placeholder="Nombre Usuario" id="userName" name="usuario" required>
                         </label>
                     </div>
-                    
                     <div>
-                        <h4>Ingrese su contraseña</h4>
-                        <br>
+                        <h4>Ingrese su contraseña</h4><br>
                         <label>
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Contraseña" id="userPassword" name="contrasena">
+                            <input type="password" placeholder="Contraseña" id="userPassword" name="contrasena" required>
                         </label>
                     </div>   
                     <input type="submit" value="Iniciar sesión">
@@ -46,5 +42,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Incluir el archivo de script JavaScript para la validación del formulario -->
+    <script src="../../js/login.js"></script>
 </body>
 </html>
