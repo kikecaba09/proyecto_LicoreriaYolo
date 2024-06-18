@@ -38,7 +38,7 @@ function login() {
                     // Verificar las credenciales del administrador
                     if (administrador.usuario === userName && administrador.contraseña === userPassword) {
                         // Credenciales de administrador válidas, redirigir al menú de administrador
-                        window.location.href = "/HTML/administrador/administrador.html";
+                        window.location.href = "../HTML/administrador/administrador.html";
                     } else {
                         // Credenciales de administrador inválidas, mostrar mensaje de error
                         var loginMessage = document.getElementById('loginMessage');
