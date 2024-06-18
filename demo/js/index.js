@@ -1,3 +1,12 @@
+function mostrarOpciones() {
+    var opcionesDiv = document.getElementById("opciones");
+    if (opcionesDiv.style.display === "block") {
+        opcionesDiv.style.display = "none";
+    } else {
+        opcionesDiv.style.display = "block";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("button").addEventListener("click", function() {
         document.querySelector(".container").classList.toggle("show");

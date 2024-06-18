@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Licoreria YOLO</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="/src/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,16 +19,22 @@
             </div>
             <h1>Licoreria YOLO</h1>
             <div class="login">
-                <i class="fa fa-user"></i>
-                <a href="../html/login/login.html">Iniciar sesion</a>
+                <i class="fas fa-user"></i>
+                <a href="#" onclick="mostrarOpciones()">Iniciar sesión</i></a>
+                <div id="opciones" class="opciones-container">
+                    <a href="/src/html/login/loginAdministrador.html">Administrador</a>
+                    <a href="/src/html/login/loginCliente.html">Cliente</a>
+                </div>
             </div>
+            
         </div>
         <ul class="menu">
             <li><a href="#banner">Inicio</a></li>
             <li><a href="../HTML/productos/productos.html">Productos</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#preguntasFrecuentes">Preguntas frecuentes</a></li>
-            <li><a href="/HTML/pedidos/registrarPedido.html">Registrar Pedido</a></li>
+            <li><a href="#reseña">Reseña</a></li>
+            <li><a href="/demo/HTML/pedidos/registrarPedido.html">Registrar Pedido</a></li>
         </ul>
     </header>
     <section id="banner" class="banner" style="background-image: url('../img/licoreria.jpg');
@@ -151,6 +157,52 @@
         </div>
     </section>
 
+    <h1 id="reseña" class="reseña">Reseñas de Clientes - Licorería "YOLO"</h1>
+
+    <div class="review-container">
+        <div class="review">
+            <div class="review-header">
+                <p class="review-title">Juan Pérez</p>
+                <p class="review-rating">★★★★★</p>
+            </div>
+            <div class="review-content">
+                <p>Visité "YOLO" la semana pasada y quedé impresionado por la variedad de licores que ofrecen. Encontré una botella de whisky escocés que había estado buscando durante meses y a un precio excelente.</p>
+                <p>El personal fue muy amable y conocedor. 
+            </div>
+            <div class="review-footer">
+                <p>Publicado el 18 de junio de 2024</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="review-header">
+                <p class="review-title">María Gómez</p>
+                <p class="review-rating">★★★★☆</p>
+            </div>
+            <div class="review-content">
+                <p>Excelente servicio al cliente. Siempre encuentro lo que busco y el personal siempre está dispuesto a ayudar y ofrecer sugerencias.</p>
+                <p>Los precios son competitivos y la calidad de los licores es excelente. Recomiendo "YOLO" a cualquiera que busque una experiencia de compra de licores sin complicaciones.</p>
+            </div>
+            <div class="review-footer">
+                <p>Publicado el 15 de junio de 2024</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="review-header">
+                <p class="review-title">Carlos López</p>
+                <p class="review-rating">★★★☆☆</p>
+            </div>
+            <div class="review-content">
+                <p>La selección de licores es buena, pero el servicio podría mejorar. Hubo un pequeño error con mi pedido y tardaron en resolverlo.</p>
+                <p>Espero que "YOLO" pueda mejorar en la atención al cliente para garantizar una experiencia más satisfactoria para todos.</p>
+            </div>
+            <div class="review-footer">
+                <p>Publicado el 12 de junio de 2024</p>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container-3 container-footer">
             <div class="menu-footer">
@@ -183,6 +235,7 @@
             </div>
         </div>
     </footer>
-    <script src="../js/index.js"></script>
+
+    <script src="/src/js/index.js"></script>
 </body>
 </html>
