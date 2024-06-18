@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Si el usuario es administrador, redirigir a la página de administrador
         $row = $result_admin->fetch_assoc();
         $nombreUsuario = $row['nombreAdministrador'];
-        header("Location: /html/administrador/administrador.html?usuario=$nombreUsuario");
+        // Redirigir a administrador.html pasando el nombre de usuario como parámetro
+        header("Location: /proyecto_LicoreriaYolo/html/administrador/administrador.html?usuario=$nombreUsuario");
         exit();
     }
 
@@ -28,7 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Si el usuario es cliente, redirigir a la página de cliente
         $row = $result_cliente->fetch_assoc();
         $nombreUsuario = $row['nombreCliente'];
-        header("Location: /html/cliente/menuCliente.html?usuario=$nombreUsuario");
+        // Redirigir a menuCliente.html pasando el nombre de usuario como parámetro
+        header("Location: /proyecto_LicoreriaYolo/html/cliente/menuCliente.html?usuario=$nombreUsuario");
         exit();
     }
 
