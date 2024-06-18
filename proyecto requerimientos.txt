@@ -1,0 +1,29 @@
+pagina web Licoreria YOLO
+
+Requisitos:
+
+para el Administrador:
+- Podra iniciar sesion con un usuario y contraseña
+- podra ver todos los clientes registrados
+- podra ver los productos disponibles y hacer un crud
+- ver los pedidos de cada cliente
+- en la base de datos se podra ver su foto
+- podra ver la fecha de registro del cliente
+
+para el cliente:
+- el cliente podra iniciar sesion con un usuario y contraseña
+- el cliente solo podra registrarse si es mayor de edad
+- el cliente podra hacer sus pedidos
+- el cliente podra pagar ya sea a traves de yape, plin, efectivo o otros.
+- tendra su foto
+
+productos
+- si se especifica cierta cantidad de productos se aplicara un descuento
+- si el producto esta en oferta se vera un descuento
+- ademas si ya la cantidad de productos esta en 0 me aparecera que el producto ya no esta disponible
+- ademas quiero ver si estan disponibles o no 
+- la cantidad ira disminuyendo mientras los clientes van haciendo pedidos
+
+pedidos:
+-  en el pedido se podra ver la fecha de pedido
+- en el pedido se podra ver la fecha en la que se debe entregar el producto

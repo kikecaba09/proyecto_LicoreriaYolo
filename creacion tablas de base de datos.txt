@@ -1,0 +1,108 @@
+CREATE TABLE Administrador (
+    idAdministrador INT AUTO_INCREMENT PRIMARY KEY,
+    nombreAdministrador VARCHAR(100) NOT NULL,
+    edad INT,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    email VARCHAR(50),
+    rol VARCHAR(20) NOT NULL,
+    imagen VARCHAR(255),
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    contrasena VARCHAR(100) NOT NULL
+);
+
+-- Tabla Clientes
+CREATE TABLE Cliente (
+    idCliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombreCliente VARCHAR(100) NOT NULL,
+    edad INT,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    fechaRegistro DATE NOT NULL DEFAULT CURDATE(),
+    imagen VARCHAR(255),
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    contrasena VARCHAR(100) NOT NULL
+);
+
+-- Tabla Categoria
+CREATE TABLE Categoria (
+    idCategoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombreCategoria VARCHAR(100) NOT NULL
+);
+
+-- Tabla Oferta
+CREATE TABLE Oferta (
+    idOferta INT AUTO_INCREMENT PRIMARY KEY,
+    motivo VARCHAR(255) NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE
+);
+
+-- Tabla Descuento
+CREATE TABLE Descuento (
+    idDescuento INT AUTO_INCREMENT PRIMARY KEY,
+    cantidadMinima INT NOT NULL,
+    porcentaje DECIMAL(5, 2) NOT NULL
+);
+
+-- Tabla Productos
+CREATE TABLE Producto (
+    idProducto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    cantidad_disponible INT NOT NULL,
+    en_oferta BOOLEAN DEFAULT FALSE,
+    descuento DECIMAL(5, 2) DEFAULT 0,
+    disponible BOOLEAN DEFAULT TRUE,
+    imagen VARCHAR(100) NOT NULL,
+    idCategoria INT,
+    idOferta INT,
+    idDescuento INT,
+    FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria),
+    FOREIGN KEY (idOferta) REFERENCES Oferta(idOferta),
+    FOREIGN KEY (idDescuento) REFERENCES Descuento(idDescuento)
+);
+
+-- Tabla Pedido
+CREATE TABLE Pedido (
+    idPedido INT AUTO_INCREMENT PRIMARY KEY,
+    idCliente INT NOT NULL,
+    fecha_pedido DATE NOT NULL,
+    fecha_entrega DATE NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)
+);
+
+-- Tabla DetallePedido
+CREATE TABLE DetallePedido (
+    idDetallePedido INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
+    FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)
+);
+
+CREATE TABLE TipoPago (
+    idTipoPago INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_metodoPago VARCHAR(50) NOT NULL
+);
+
+-- Tabla Pagos
+CREATE TABLE Pago (
+    idPago INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idTipoPago INT NOT NULL,
+    monto DECIMAL(10, 2) NOT NULL,
+    estado VARCHAR(20) DEFAULT 'pendiente',
+    fecha_pago DATE,
+    FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
+    FOREIGN KEY (idTipoPago) REFERENCES TipoPago(idTipoPago)
+);
+
+
+
+
