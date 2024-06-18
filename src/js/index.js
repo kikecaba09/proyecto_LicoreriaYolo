@@ -1,3 +1,12 @@
+function mostrarOpciones() {
+    var opcionesDiv = document.getElementById("opciones");
+    if (opcionesDiv.style.display === "none") {
+        opcionesDiv.style.display = "block";
+    } else {
+        opcionesDiv.style.display = "none";
+    }
+}
+
 // Función para añadir los botones de inicio de sesión dinámicamente
 function addLoginButtons() {
     const loginButtonsContainer = document.getElementById('loginButtonsContainer');
