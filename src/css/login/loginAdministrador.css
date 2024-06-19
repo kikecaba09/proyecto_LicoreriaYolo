@@ -18,7 +18,7 @@ body {
     margin-bottom: 20px;
     font-size: 2.5em;
     text-align: center;
-    text-shadow: 7px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 4px 2px 4px rgba(172, 34, 34, 0.5);
 }
 
 .admin-login-container {

@@ -7,22 +7,35 @@
     <link rel="stylesheet" href="/src/css/login/loginCliente.css">
 </head>
 <body>
-    <h1 class="titulo-principal animate__animated">Inicio de sesión como Cliente</h1>
+    <div class="split-container">
+        <!-- Sección de bienvenida al cliente a la izquierda -->
+        <div class="welcome-container">
+            <h2>¡Te damos la bienvenida!</h2>
+            <p>
+                Bienvenido al portal de clientes de Licorería YOLO, donde podrás disfrutar de una experiencia 
+                de compra única. Regístrate para acceder a funcionalidades como realizar pedidos de nuestros 
+                productos exclusivos y almacenar tus selecciones en el carrito para una compra rápida y conveniente.
+            </p>
+            <img src="/src/img/bienvenidaAdministrador.jpeg" alt="Imagen de bienvenida" class="welcome-image">
+        </div>
+
+        <!-- Sección del formulario de inicio de sesión a la derecha -->
+        <div class="cliente-login-container">
+            <h1 class="titulo-principal animate__animated">¡Hola!</h1>
+            <p>Ingrese sus credenciales</p>
     <div class="cliente-login-container animate__animated">
-        <h2>Bienvenido, Cliente</h2>
         <form action="cliente_dashboard.html" method="POST">
-            <label for="cliente-username">Nombre de Usuario:</label>
+            <label for="cliente-username">Nombre de Usuario:</label><br>
             <input type="text" id="cliente-username" name="username" required>
             
-            <label for="cliente-password">Contraseña:</label>
+            <label for="cliente-password">Contraseña:</label><br>
             <input type="password" id="cliente-password" name="password" required>
             
             <button type="submit">Iniciar Sesión</button>
         </form>
         <p class="registro">¿Nuevo aquí? <a href="/src/html/cliente/registroCliente.html">Regístrate ahora</a></p>
     </div>
-
-    <!-- JavaScript para las animaciones -->
-    <script src="/src/js/login/loginCliente.js"></script>
+        </div>
+    </div>
 </body>
 </html>

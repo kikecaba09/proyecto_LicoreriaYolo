@@ -1,49 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #a76767, #302621);
+/* Estilos generales para el cuerpo y el contenedor principal */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Color de fondo general */
+}
+
+/* Estilo para la disposición de las secciones */
+.split-container {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura visible del viewport */
+}
+
+.welcome-container,
+.cliente-login-container {
+    flex: 1; /* Ambas secciones ocupan el mismo espacio */
+    padding: 40px;
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+}
+
+/* Estilos específicos para cada sección */
+.welcome-container {
+    margin-right: -20px; 
+    background-color: #000;
+    color: #fff4f4;/* Ajuste negativo para eliminar el espacio entre las secciones */
+}
+
+.cliente-login-container {
+    margin-left: -20px; /* Ajuste negativo para eliminar el espacio entre las secciones */
+}
+
+.welcome-container h2 {
+    color: #ffffff; /* Color de texto oscuro */
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+.welcome-container p {
+    color: #f8eeee; /* Color de texto gris */
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.welcome-image {
+    width: 70%; /* Ancho del 50% del contenedor */
+    max-width: 300px; /* Ancho máximo deseado para la imagen */
+    height: 30%; /* Altura automática para mantener la proporción */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 20px; /* Espacio superior */
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
 .titulo-principal {
     margin-bottom: 20px;
-    font-size: 2em;
-    color: #cfcfcf;
-    text-align: center;
+    font-size: 3em;
+    color: #0a0a0a;
+    
     font-weight: 700;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     animation: fadeInDown 1s;
-}
-
-.cliente-login-container {
-    background: #ffffff;
-    color: #333;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    animation: bounceInUp 1.5s;
-}
-
-.cliente-login-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     margin-bottom: 20px;
     color: #0e0e0e;
     animation: zoomIn 0.8s;
+}
+
+p{
+    font-size: 2em;
 }
 
 label {
@@ -104,14 +140,15 @@ button:active {
 
 .registro {
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 1.1em;
     color: #333;
     animation: fadeInUp 0.8s;
 }
 
 .registro a {
     color: #221d16;
-    text-decoration: none;
+    text-decoration: underline;
+    font-size: 1.1em;
     font-weight: bold;
     transition: color 0.3s, text-decoration 0.3s;
 }
