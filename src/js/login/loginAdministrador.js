@@ -1,13 +1,29 @@
-// Script para validar el formulario antes de enviar
-function validarFormulario() {
-    var usuario = document.getElementById("userName").value;
-    var contrasena = document.getElementById("userPassword").value;
+$(document).ready(function() {
+    // Mostrar/Ocultar contraseña
+    $('#toggle-password').on('click', function() {
+        const passwordField = $('#admin-password');
+        const type = passwordField.attr('type') === 'password' ? 'text' : 'password';
+        passwordField.attr('type', type);
+        $(this).find('i').toggleClass('fa-eye fa-eye-slash');
+    });
 
-    // Validar que los campos no estén vacíos
-    if (usuario.trim() === "" || contrasena.trim() === "") {
-        document.getElementById("loginMessage").innerText = "Por favor, complete todos los campos.";
-        return false;
-    }
+    // Validación del formulario
+    $('#login-form').on('submit', function(event) {
+        let valid = true;
+        $('.error-message').hide();
 
-    return true;
-}
+        if ($('#admin-username').val().trim() === '') {
+            valid = false;
+            $('#username-error').text('Por favor, ingrese su usuario.').show();
+        }
+
+        if ($('#admin-password').val().trim() === '') {
+            valid = false;
+            $('#password-error').text('Por favor, ingrese su contraseña.').show();
+        }
+
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
+});

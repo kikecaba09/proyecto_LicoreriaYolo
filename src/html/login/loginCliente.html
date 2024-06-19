@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Cliente - Licorería YOLO</title>
+    <link rel="stylesheet" href="/src/css/login/loginCliente.css">
+</head>
+<body>
+    <h1 class="titulo-principal animate__animated">Inicio de sesión como Cliente</h1>
+    <div class="cliente-login-container animate__animated">
+        <h2>Bienvenido, Cliente</h2>
+        <form action="cliente_dashboard.html" method="POST">
+            <label for="cliente-username">Nombre de Usuario:</label>
+            <input type="text" id="cliente-username" name="username" required>
+            
+            <label for="cliente-password">Contraseña:</label>
+            <input type="password" id="cliente-password" name="password" required>
+            
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p class="registro">¿Nuevo aquí? <a href="/src/html/cliente/registroCliente.html">Regístrate ahora</a></p>
+    </div>
+
+    <!-- JavaScript para las animaciones -->
+    <script src="/src/js/login/loginCliente.js"></script>
+</body>
+</html>

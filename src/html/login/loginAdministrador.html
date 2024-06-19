@@ -2,48 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="../../css/login/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Login Administrador - Licorería YOLO</title>
+    <link rel="stylesheet" href="/src/css/login/loginAdministrador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <div class="container-form register">
-        <div class="information">
-            <div class="info-childs">
-                <h2>YOLO</h2>
+    <h1 class="titulo-principal">Inicio de sesión como Administrador</h1>
+    <div class="admin-login-container">
+        <h2>Login Administrador</h2>
+        <form action="admin_dashboard.html" method="POST" id="login-form">
+            <div class="input-container">
+                <label for="admin-username"><i class="fa fa-user"></i> Usuario:</label>
+                <input type="text" id="admin-username" name="username" class="input-field" required>
+                <span class="error-message" id="username-error"></span>
             </div>
-        </div>
-        <div class="form-information">
-            <div class="form-information-childs">
-                <h2>Login</h2>
-                <p>Ingrese sus credenciales</p>
-                <form action="../../php/login/login.php" method="POST" class="form form-register">
-                    <div>
-                        <h4>Ingrese el nombre de usuario</h4><br>
-                        <label>
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nombre Usuario" id="userName" name="usuario" required>
-                        </label>
-                    </div>
-                    <div>
-                        <h4>Ingrese su contraseña</h4><br>
-                        <label>
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Contraseña" id="userPassword" name="contrasena" required>
-                        </label>
-                    </div>   
-                    <input type="submit" value="Iniciar sesión">
-                </form>
-                <br>
-                <p id="loginMessage"></p>
-                <p>¿No tiene cuenta? <a href="../cliente/registroCliente.html">Regístrese ahora</a></p>
+            
+            <div class="input-container">
+                <label for="admin-password"><i class="fa fa-lock"></i> Contraseña:</label>
+                <input type="password" id="admin-password" name="password" class="input-field" required>
+                <button type="button" id="toggle-password" class="toggle-password"><i class="fa fa-eye"></i></button>
+                <span class="error-message" id="password-error"></span>
             </div>
-        </div>
+            
+            <button type="submit" class="submit-button">Ingresar</button><br><br>
+        </form>
+        <p class="olvido"><a href="recuperarContraseña.html">¿Olvidaste tu contraseña?</a></p>
+        
     </div>
 
-    <!-- Incluir el archivo de script JavaScript para la validación del formulario -->
-    <script src="../../js/login.js"></script>
+    <!-- JavaScript para funcionalidad adicional -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/src/js/login/loginAdministrador.js"></script>
 </body>
 </html>

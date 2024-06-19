@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #a76767, #302621);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo-principal {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #cfcfcf;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s;
+}
+
+.cliente-login-container {
+    background: #ffffff;
+    color: #333;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    animation: bounceInUp 1.5s;
+}
+
+.cliente-login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #0e0e0e;
+    animation: zoomIn 0.8s;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: 500;
+    animation: fadeInLeft 0.8s;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    animation: fadeInRight 0.8s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ff8f00;
+    box-shadow: 0 0 8px rgba(255, 143, 0, 0.4);
+    outline: none;
+    transform: scale(1.02);
+}
+
+button {
+    padding: 12px 30px;
+    background-color: #44403a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    animation: fadeInUp 0.8s;
+}
+
+button:hover {
+    background-color: #ff6f00;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.registro {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    animation: fadeInUp 0.8s;
+}
+
+.registro a {
+    color: #221d16;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.registro a:hover {
+    text-decoration: underline;
+    color: #0a0807;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

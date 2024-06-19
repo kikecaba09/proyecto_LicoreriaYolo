@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - Licorería YOLO</title>
+    <link rel="stylesheet" href="/src/css/login/recuperarContraseña.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        
+        <div class="card">
+            <h2>Recuperar Contraseña</h2>
+            <form action="recuperar_admin_submit.php" method="POST" id="recover-form">
+                <div class="linea-separadora"></div> <!-- Línea separadora debajo del título -->
+                <div class="input-container">
+                    <label for="admin-email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+                    <input type="email" id="admin-email" name="email" class="input-field" required>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="submit-button">Enviar</button>
+                </div>
+            </form>
+            <p class="volver-login"><a href="loginAdministrador.html">&larr; Volver al Inicio de Sesión</a></p>
+        </div>
+    </div>
+</body>
+</html>

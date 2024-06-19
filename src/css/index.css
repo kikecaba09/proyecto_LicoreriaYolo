@@ -129,50 +129,58 @@ header h1 {
 
 .login {
     display: inline-block;
-    background-color: #fffcfc; 
-    padding: 32px 40px;
-    border-radius: 50px; 
+    background-color: #fffcfc;
+    padding: 20px 35px; /* Ajustar el padding para reducir el tamaño del botón */
+    border-radius: 30px; /* Reducir el radio del borde para un aspecto más estilizado */
     border: 2px solid #333;
+    position: relative; /* Añadir posición relativa para contener las opciones */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
 }
 
 .login i {
-    margin-right: 5px; 
+    margin-right: 8px; /* Aumentar el margen del icono para separarlo más del texto */
 }
 
 .login a {
-    color: #020202; /* Color del texto */
-    text-decoration: none; /* Eliminar subrayado del enlace */
-    font-weight: bold; /* Texto en negrita */
-    font-size: 1.2rem;
-}
-
-/* Estilos para el efecto hover en el enlace de inicio de sesión */
-.login a:hover {
-    color: #ffd107; /* Cambiar color al pasar el cursor */
+    color: #020202;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem; /* Reducir tamaño de fuente para un aspecto más equilibrado */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
 .login:hover {
-    box-shadow: 0 0 0 4px #f36f04; 
+    box-shadow: 0 0 0 4px rgba(243, 111, 4, 0.4); /* Ajustar color y opacidad de la sombra al hacer hover */
 }
 
 .opciones-container {
     display: none;
     position: absolute;
-    background-color: #110f0f;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: calc(100% + 8px); /* Ajustar posición vertical para que esté justo debajo del botón */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%);
+    background-color: #fff; /* Cambiar color de fondo */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 3;
+    border-radius: 8px; /* Agregar borde redondeado */
+    padding: 8px 0; /* Ajustar padding para mejorar la visualización */
+    min-width: 150px; /* Establecer ancho mínimo */
 }
 
 .opciones-container a {
     display: block;
-    padding: 12px 16px;
+    padding: 10px 20px; /* Ajustar padding de los enlaces */
     text-decoration: none;
-    color: #f1e5e5;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
 }
 
 .opciones-container a:hover {
-    background-color: #f1f1f1;
+    background-color: #f0f0f0; /* Cambiar color de fondo al hacer hover */
+    color: #020202; /* Cambiar color del texto al hacer hover */
 }
+
 
 
 .menu {
