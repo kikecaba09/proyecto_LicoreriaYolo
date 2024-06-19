@@ -29,11 +29,6 @@ body, html {
     align-items: center;
 }
 
-.cliente-login-container{
-    border: 2px solid #000;
-    border-radius: 50px;
-}
-
 /* Estilos específicos para cada sección */
 .welcome-container {
     margin-right: -20px; 
