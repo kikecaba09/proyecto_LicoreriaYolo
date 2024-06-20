@@ -5,9 +5,7 @@ session_start();
 include_once '../conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Incluir archivo de conexió
-
-    // Obtener datos del formulario
+    
     $username = $_POST['username'];
     $password = $_POST['password'];
 
