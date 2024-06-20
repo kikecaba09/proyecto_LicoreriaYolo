@@ -47,9 +47,10 @@ body, html {
 }
 
 .welcome-container p {
+    width: 80%;
     color: #f8eeee; /* Color de texto gris */
-    text-align: center;
-    font-size: 1.6rem;
+    text-align: justify;
+    font-size: 1rem;
     line-height: 1.6;
 }
 

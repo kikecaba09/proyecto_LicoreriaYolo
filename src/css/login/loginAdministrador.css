@@ -34,19 +34,19 @@ body, html {
 }
 /* Estilo para el texto de bienvenida */
 .welcome-container h2 {
-    font-size: 2em; /* Tamaño de fuente del título */
+    font-size: 1.5em; /* Tamaño de fuente del título */
     margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
 }
 
 .welcome-container p {
-    font-size: 1.1em; /* Tamaño de fuente de los párrafos */
+    font-size: 1em; /* Tamaño de fuente de los párrafos */
     margin: 10px 0; /* Márgenes superior e inferior para espaciar */
-    text-align: center; /* Centra el texto */
+    text-align: justify; /* Centra el texto */
 }
 
 /* Imagen de bienvenida */
 .welcome-image {
-    width: 80%; /* La imagen ocupa el 80% del contenedor */
+    width: 50%; /* La imagen ocupa el 80% del contenedor */
     max-width: 400px; /* Ancho máximo de 400px */
     border-radius: 10px; /* Bordes redondeados */
     margin-top: 20px; /* Margen superior para separar del contenido anterior */
@@ -67,7 +67,6 @@ body, html {
     background: rgba(245, 245, 245, 0.8); /* Fondo negro semitransparente */
     color: #000;
     padding: 40px; /* Relleno interno */
-    border-radius: 10px; /* Bordes redondeados */
     width: 350px; /* Ancho fijo */
     text-align: center; /* Centra el texto */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra del contenedor */
@@ -78,17 +77,22 @@ body, html {
     align-items: center; /* Centra el contenido horizontalmente */
 }
 
-
+/* Efecto hover para el contenedor de login */
+.admin-login-container:hover {
+    transform: translateY(-5px); /* Levanta el contenedor al pasar el cursor */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7); /* Incrementa la sombra */
+}
 
 .admin-login-container-login {
+    margin: 0;
+    padding: 0;
+    width: 30%;
     border: 2px solid #000;
     background-color: #000;
     color: #ddd;
     border-radius: 20px;
     width: 600px; /* Ancho deseado */
-    height: 400px; /* Altura deseada */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center;
+    height: 420px; /* Altura deseada */
 }
 
 
@@ -111,6 +115,10 @@ p{
     font-size: 20px;
 }
 
+#login-form{
+    width: 70%;
+}
+
 /* Contenedor para los campos de entrada */
 .input-container {
     margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
@@ -118,13 +126,15 @@ p{
     text-align: left; /* Alinea a la izquierda el contenido */
     align-items: center;
     justify-content: center;
+    right: -60px;
+    
 }
 
 /* Estilos para las etiquetas */
 label {
     width: 50%; /* Anchura completa del contenedor */
     display: block; /* Hace que la etiqueta ocupe una línea completa */
-    gap: 50px;
+    margin-bottom: 20px;
 }
 
 input[type="text"],
@@ -146,7 +156,7 @@ input[type="password"] {
 .toggle-password {
     position: absolute; /* Posicionamiento absoluto dentro del contenedor */
     right: 10px; /* Alinea a la derecha con un margen de 10px */
-    top: 35px; /* Alinea en la parte superior con un margen de 35px */
+    top: 55px; /* Alinea en la parte superior con un margen de 35px */
     background: none; /* Sin fondo */
     border: none; /* Sin borde */
     cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
@@ -163,26 +173,26 @@ input[type="password"] {
 
 /* Botón de envío del formulario */
 .submit-button {
-padding: 12px 30px;
-background-color: #ff8f00; /* Color de fondo */
-color: #fff; /* Color del texto */
-border: none;
-border-radius: 5px; /* Bordes redondeados */
-cursor: pointer;
-width: 100%; /* Anchura completa */
-font-size: 16px;
-transition: background-color 0.3s, transform 0.2s; /* Transiciones para efectos */
-gap: 35px;
+    padding: 12px 200px;
+    right: 200px;
+    background-color: #44403a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    animation: fadeInUp 0.8s;
+    justify-content: space-between;
 }
 
 /* Efecto hover para el botón de envío */
 .submit-button{
-background-color: #ff6f00; /* Cambia el color de fondo */
+    background-color: #ff6f00; /* Cambia el color de fondo */
 }
 
 /* Efecto foco para el botón de envío */
-.submit-button
-{
+.submit-button {
 outline: none;
 }
 
@@ -191,10 +201,13 @@ outline: none;
 transform: scale(0.98); /* Reduce ligeramente el tamaño */
 }
 
+.submit-button:hover{
+    background-color: #2c3bc0;
+}
 /* Estilos para los enlaces de recuperación de contraseña y ayuda */
 .olvido, .help {
-margin-top: 10px;
-font-size: 0.9em;
+margin-top: 20px;
+font-size: 1em;
 }
 
 /* Estilos para los enlaces */

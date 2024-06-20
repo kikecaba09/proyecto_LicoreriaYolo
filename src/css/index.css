@@ -130,7 +130,7 @@ header h1 {
 .login {
     display: inline-block;
     background-color: #fffcfc;
-    padding: 20px 35px; /* Ajustar el padding para reducir el tamaño del botón */
+    padding: 10px 25px; /* Ajustar el padding para reducir el tamaño del botón */
     border-radius: 30px; /* Reducir el radio del borde para un aspecto más estilizado */
     border: 2px solid #333;
     position: relative; /* Añadir posición relativa para contener las opciones */
@@ -368,14 +368,14 @@ h1 {
 }
 
 .review-rating {
-    font-size: 2em;
+    font-size: 2.3em;
     margin: 0;
     color: #ffd700; /* Color amarillo para las estrellas */
 }
 
 .review-content {
     margin-top: 10px;
-    font-size: 1em; /* Tamaño de texto para el contenido de la reseña */
+    font-size: 1.1em; /* Tamaño de texto para el contenido de la reseña */
     text-align: justify; /* Justificar texto */
 }
 
