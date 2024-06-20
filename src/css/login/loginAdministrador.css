@@ -67,7 +67,7 @@ body, html {
     background: rgba(245, 245, 245, 0.8); /* Fondo negro semitransparente */
     color: #000;
     padding: 40px; /* Relleno interno */
-    
+    border-radius: 10px; /* Bordes redondeados */
     width: 350px; /* Ancho fijo */
     text-align: center; /* Centra el texto */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra del contenedor */
@@ -78,11 +78,7 @@ body, html {
     align-items: center; /* Centra el contenido horizontalmente */
 }
 
-/* Efecto hover para el contenedor de login */
-.admin-login-container:hover {
-    transform: translateY(-5px); /* Levanta el contenedor al pasar el cursor */
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7); /* Incrementa la sombra */
-}
+
 
 .admin-login-container-login {
     border: 2px solid #000;

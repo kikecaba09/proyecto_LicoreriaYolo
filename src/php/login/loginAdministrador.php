@@ -1,43 +1,47 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
-require_once "../conexion.php";
+// Iniciar sesión
+session_start();
 
-// Verificar si se enviaron los datos del formulario
+include_once '../conexion.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir datos del formulario
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
+    // Incluir archivo de conexió
 
-    // Consulta para verificar si es administrador
-    $sql_admin = "SELECT * FROM Administrador WHERE usuario='$usuario' AND contrasena='$contrasena'";
-    $result_admin = $conn->query($sql_admin);
+    // Obtener datos del formulario
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if ($result_admin->num_rows > 0) {
-        // Si el usuario es administrador, redirigir a la página de administrador
-        $row = $result_admin->fetch_assoc();
-        $nombreUsuario = $row['nombreAdministrador'];
-        // Redirigir a administrador.html pasando el nombre de usuario como parámetro
-        header("Location: /proyecto_LicoreriaYolo/html/administrador/administrador.html?usuario=$nombreUsuario");
-        exit();
+    // Consulta preparada para evitar inyección SQL
+    $sql = "SELECT * FROM Administrador WHERE usuario = ? AND contrasena = ?";
+    
+    // Preparar la consulta
+    $stmt = mysqli_stmt_init($conexion);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Error en la preparación de la consulta.";
+    } else {
+        // Vincular parámetros
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        
+        // Ejecutar consulta
+        mysqli_stmt_execute($stmt);
+        
+        // Obtener resultados
+        $result = mysqli_stmt_get_result($stmt);
+        
+        if (mysqli_num_rows($result) == 1) {
+            // Usuario y contraseña válidos
+            // Iniciar sesión y redirigir
+            $_SESSION['usuario'] = $username;
+            header("Location: ../../html/administrador/administrador.html");
+            exit();
+        } else {
+            // Usuario o contraseña incorrectos
+            echo "Usuario o contraseña incorrectos.";
+        }
     }
 
-    // Consulta para verificar si es cliente
-    $sql_cliente = "SELECT * FROM Cliente WHERE usuario='$usuario' AND contrasena='$contrasena'";
-    $result_cliente = $conn->query($sql_cliente);
-
-    if ($result_cliente->num_rows > 0) {
-        // Si el usuario es cliente, redirigir a la página de cliente
-        $row = $result_cliente->fetch_assoc();
-        $nombreUsuario = $row['nombreCliente'];
-        // Redirigir a menuCliente.html pasando el nombre de usuario como parámetro
-        header("Location: /proyecto_LicoreriaYolo/html/cliente/menuCliente.html?usuario=$nombreUsuario");
-        exit();
-    }
-
-    // Si no se encontró un usuario válido, mostrar mensaje de error
-    echo "Usuario o contraseña incorrectos.";
-
-    // Cerrar la conexión a la base de datos
-    $conn->close();
+    // Cerrar declaración y conexión
+    mysqli_stmt_close($stmt);
+    mysqli_close($conexion);
 }
 ?>
