@@ -1,40 +1,43 @@
 <?php
-require_once('../conexion.php');
+// Incluir el archivo de conexión a la base de datos
+require_once "../conexion.php";
 
-// Crear una instancia de la clase de conexión
-$dbConnection = new DBConnection();
-$conn = $dbConnection->conn;
-
-// Verificar si se envió el formulario
+// Verificar si se enviaron los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener datos del formulario
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Recibir datos del formulario
+    $usuario = $_POST['usuario'];
+    $contrasena = $_POST['contrasena'];
 
-    // Consulta SQL para verificar el usuario y contraseña
-    $sql = "SELECT * FROM Administrador WHERE usuario = '$username'";
-    $result = $conn->query($sql);
+    // Consulta para verificar si es administrador
+    $sql_admin = "SELECT * FROM Administrador WHERE usuario='$usuario' AND contrasena='$contrasena'";
+    $result_admin = $conn->query($sql_admin);
 
-    if ($result->num_rows > 0) {
-        // Usuario encontrado, verificar contraseña
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['contrasena'])) {
-            // Inicio de sesión exitoso
-            session_start();
-            $_SESSION['username'] = $username;
-            // Redirigir al dashboard del administrador
-            header("Location: /src/html/administrador/administrador.html");
-            exit(); // Importante: asegúrate de salir del script después de la redirección
-        } else {
-            // Contraseña incorrecta
-            echo "Contraseña incorrecta";
-        }
-    } else {
-        // Usuario no encontrado
-        echo "Usuario no encontrado";
+    if ($result_admin->num_rows > 0) {
+        // Si el usuario es administrador, redirigir a la página de administrador
+        $row = $result_admin->fetch_assoc();
+        $nombreUsuario = $row['nombreAdministrador'];
+        // Redirigir a administrador.html pasando el nombre de usuario como parámetro
+        header("Location: /proyecto_LicoreriaYolo/html/administrador/administrador.html?usuario=$nombreUsuario");
+        exit();
     }
-}
 
-// Cerrar conexión a la base de datos al finalizar
-$dbConnection->closeConnection();
+    // Consulta para verificar si es cliente
+    $sql_cliente = "SELECT * FROM Cliente WHERE usuario='$usuario' AND contrasena='$contrasena'";
+    $result_cliente = $conn->query($sql_cliente);
+
+    if ($result_cliente->num_rows > 0) {
+        // Si el usuario es cliente, redirigir a la página de cliente
+        $row = $result_cliente->fetch_assoc();
+        $nombreUsuario = $row['nombreCliente'];
+        // Redirigir a menuCliente.html pasando el nombre de usuario como parámetro
+        header("Location: /proyecto_LicoreriaYolo/html/cliente/menuCliente.html?usuario=$nombreUsuario");
+        exit();
+    }
+
+    // Si no se encontró un usuario válido, mostrar mensaje de error
+    echo "Usuario o contraseña incorrectos.";
+
+    // Cerrar la conexión a la base de datos
+    $conn->close();
+}
 ?>
