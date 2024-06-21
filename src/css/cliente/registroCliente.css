@@ -32,6 +32,14 @@ h1 {
     font-weight: bold;
 }
 
+#ageError {
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
 .form-control {
     border: 2px solid #007bff;
     border-radius: 5px;
@@ -91,6 +99,19 @@ input[type="file"]::file-selector-button:hover {
 input[type="file"]:focus {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.password-requirements {
+    margin-top: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    list-style-type: none; /* Para quitar los puntos de la lista */
+}
+
+.password-requirements li {
+    margin-bottom: 5px; /* Espacio entre los elementos de la lista */
 }
 
 /* Estilos para pantallas pequeñas */

@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-require 'c../'; // Asegúrate de que el archivo conexion.php esté en la misma carpeta o ajusta la ruta
+require '../conexion.php'; // Asegúrate de que el archivo conexion.php esté en la misma carpeta o ajusta la ruta
 
 // Obtener datos del formulario
 $nombreCliente = $_POST['nombreCliente'];
