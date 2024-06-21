@@ -1,46 +1,60 @@
-/* Archivo: menuPrincipal.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
 }
 
-.menu-container {
-    width: 25%;
-    background-color: #007BFF;
-    color: #fff;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
-.menu-container h1 {
+header {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.menu-container ul {
-    list-style-type: none;
+header h1 {
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.menu-container ul li {
-    margin-bottom: 10px;
+nav ul li {
+    margin: 0 10px;
 }
 
-.menu-container ul li a {
+nav ul li a {
     text-decoration: none;
-    color: #fff;
-    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
 }
 
-.menu-container ul li a:hover {
+nav ul li a:hover {
     text-decoration: underline;
 }
 
-.content-container {
-    margin-left: 25%;
+main {
+    background-color: #fff;
     padding: 20px;
+    border: 1px solid #ddd;
+}
+
+main h2 {
+    color: #333;
+}
+
+.admin-image {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin-top: 10px;
 }
