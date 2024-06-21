@@ -19,3 +19,8 @@ function cargarContenido(pagina) {
         })
         .catch(error => console.error('Error al cargar el contenido:', error));
 }
+
+window.onload = function() {
+    // Llama a la función para cargar la información inicial (informacion.php)
+    cargarContenido('../../php/administrador/informacion.php');
+};

@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.admin-details {
+    flex: 1; /* Que ocupe el espacio restante */
+}
+
+.admin-details h2 {
+    margin-top: 0; /* Elimina el margen superior del título */
+    font-size: 24px; /* Tamaño del título */
+    color: #333; /* Color del texto */
+    border-bottom: 1px solid #ccc; /* Línea divisoria bajo el título */
+    padding-bottom: 10px; /* Espacio debajo del título */
+}
+
+.admin-details p {
+    margin: 10px 0; /* Espacio entre los párrafos */
+    line-height: 1.6; /* Altura de línea para una mejor legibilidad */
+}
+
+.admin-image {
+    margin-top: 60px; /* Espacio superior para la imagen */
+    text-align: center; /* Centrar la imagen en el contenedor */
+}
+
+.admin-image img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita el espacio adicional debajo de la imagen */
+    border-radius: 50%; /* Opcional: redondea la imagen */
+}
+
+/* Media query para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .admin-info {
+        flex-direction: column; /* Cambia a disposición de columna en dispositivos pequeños */
+    }
+    .admin-image {
+        margin-top: 10px; /* Espacio superior para la imagen en dispositivos pequeños */
+    }
+}

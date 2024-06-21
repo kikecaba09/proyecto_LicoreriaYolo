@@ -1,60 +1,66 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
+/* administrador.css */
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 100%;
+    margin: 20px auto; /* Centra el contenedor en la página */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
+/* Estilos para el encabezado */
 header {
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 10px 0;
 }
 
-header h1 {
-    color: #333;
+/* administrador.css */
+
+/* Estilo para la lista de navegación */
+nav {
+    text-align: center; /* Centra los elementos de la navegación */
+    margin-top: 20px; /* Espacio superior */
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin: 0 auto; /* Centra la lista horizontalmente */
+    display: inline-block; /* Muestra la lista de navegación en línea */
 }
 
 nav ul li {
-    margin: 0 10px;
+    display: inline-block;
+    margin-right: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #007bff;
+    color: #000000;
     font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease, color 0.3s ease;
 }
 
+/* Estilo para los enlaces activos */
+nav ul li a.active {
+    border-bottom-color: #27ae60; /* Color de borde activo */
+    color: #27ae60; /* Color del texto activo */
+}
+
+/* Estilo para los enlaces en hover */
 nav ul li a:hover {
-    text-decoration: underline;
+    background-color: #f2f2f2;
 }
 
-main {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-main h2 {
-    color: #333;
-}
-
-.admin-image {
-    max-width: 200px;
-    height: auto;
-    display: block;
-    margin-top: 10px;
+/* Media query para dispositivos más pequeños */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
