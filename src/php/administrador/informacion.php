@@ -2,6 +2,7 @@
 session_start();
 include '../conexion.php';
 
+// Verificar si el administrador está autenticado
 if (!isset($_SESSION['idAdministrador'])) {
     echo "<p>No tienes permiso para acceder a esta información.</p>";
     exit();

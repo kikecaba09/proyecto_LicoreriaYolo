@@ -28,8 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if (mysqli_num_rows($result) == 1) {
             // Usuario y contraseña válidos
-            // Iniciar sesión y redirigir
-            $_SESSION['usuario'] = $username;
+            // Obtener datos del administrador
+            $admin = mysqli_fetch_assoc($result);
+            
+            // Iniciar sesión con información adicional
+            $_SESSION['idAdministrador'] = $admin['idAdministrador'];
+            $_SESSION['nombreAdministrador'] = $admin['nombreAdministrador'];
+            // Puedes agregar más información si es necesario
+            
+            // Redirigir al panel de administrador
             header("Location: ../../html/administrador/administrador.html");
             exit();
         } else {
