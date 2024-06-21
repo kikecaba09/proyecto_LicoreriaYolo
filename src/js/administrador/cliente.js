@@ -1,4 +1,5 @@
 function eliminarCliente(idCliente) {
+    console.log('Intentando eliminar cliente con ID:', idCliente); // Verificar que la función se está llamando correctamente
     Swal.fire({
         title: '¿Estás seguro?',
         text: "Esta acción no se puede deshacer.",
@@ -16,6 +17,7 @@ function eliminarCliente(idCliente) {
                 dataType: 'json',
                 data: { idCliente: idCliente },
                 success: function (response) {
+                    console.log(response); // Verificar la respuesta del servidor
                     if (response.status === 'success') {
                         Swal.fire({
                             title: 'Cliente eliminado',
@@ -37,7 +39,8 @@ function eliminarCliente(idCliente) {
                         });
                     }
                 },
-                error: function () {
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error); // Verificar errores en la solicitud AJAX
                     Swal.fire({
                         title: 'Error',
                         text: 'Se produjo un error al eliminar el cliente.',
