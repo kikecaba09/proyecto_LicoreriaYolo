@@ -1,43 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('infoCuentaLink').addEventListener('click', function() {
-        cargarContenido('../../html/administrador/cuentaAdministrador.html');
-        cambiarClaseActiva(this);
+$(document).ready(function() {
+    $('#admin-info-link').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'getAdminInfo.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                if (data.error) {
+                    alert(data.error);
+                    window.location.href = 'loginAdministrador.html'; // Redirige a la página de login si hay un error
+                } else {
+                    let adminInfoHTML = `
+                        <h2>Información del Administrador</h2>
+                        <div class="admin-info">
+                            <img src="${data.imagen}" alt="Foto del Administrador" class="admin-image">
+                            <ul>
+                                <li><strong>Nombre:</strong> ${data.nombreAdministrador}</li>
+                                <li><strong>Edad:</strong> ${data.edad}</li>
+                                <li><strong>Teléfono:</strong> ${data.telefono}</li>
+                                <li><strong>Dirección:</strong> ${data.direccion}</li>
+                                <li><strong>Email:</strong> ${data.email}</li>
+                                <li><strong>Rol:</strong> ${data.rol}</li>
+                            </ul>
+                        </div>
+                    `;
+                    $('#content-container').html(adminInfoHTML);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert('Error al cargar la información del administrador.');
+                console.error(error);
+            }
+        });
     });
-
-    document.getElementById('clientesLink').addEventListener('click', function() {
-        cargarContenido('../../html/administrador/administrador-Cliente.html');
-        cambiarClaseActiva(this);
-    });
-
-    document.getElementById('productosLink').addEventListener('click', function() {
-        cargarContenido('../../html/administrador/administrador-Producto.html');
-        cambiarClaseActiva(this);
-    });
-
-    // Cargar la vista inicial
-    cargarContenido('../../html/administrador/cuentaAdministrador.html');
 });
-
-function cargarContenido(url) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('contenido').innerHTML = data;
-            cargarScript(url.replace('.html', '.js')); // Carga el script correspondiente
-        })
-        .catch(error => console.error('Error:', error));
-}
-
-function cambiarClaseActiva(element) {
-    let links = document.querySelectorAll('.nav-link');
-    links.forEach(link => {
-        link.classList.remove('active');
-    });
-    element.classList.add('active');
-}
-
-function cargarScript(scriptUrl) {
-    let script = document.createElement('script');
-    script.src = scriptUrl;
-    document.body.appendChild(script);
-}

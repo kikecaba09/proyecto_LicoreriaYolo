@@ -1,77 +1,46 @@
-/* Estilos generales */
+/* Archivo: menuPrincipal.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    background-color: #fff;
-    border-radius: 8px;
+.menu-container {
+    width: 25%;
+    background-color: #007BFF;
+    color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #333;
+.menu-container h1 {
+    margin-bottom: 20px;
 }
 
-.nav-pills .nav-link {
-    color: #007bff;
-    border-radius: 0.25rem 0.25rem 0 0;
+.menu-container ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.nav-pills .nav-link.active {
-    background-color: #007bff;
+.menu-container ul li {
+    margin-bottom: 10px;
+}
+
+.menu-container ul li a {
+    text-decoration: none;
     color: #fff;
-    border-color: #007bff;
+    font-size: 18px;
 }
 
-.nav-pills .nav-link:hover {
-    background-color: #e9ecef;
+.menu-container ul li a:hover {
+    text-decoration: underline;
 }
 
-.table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-.table th, .table td {
-    border: 1px solid #dee2e6;
-    padding: 8px;
-    text-align: center;
-}
-
-.table th {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.table td {
-    background-color: #fff;
-}
-
-.table img {
-    max-width: 100px;
-    max-height: 100px;
-}
-
-/* Estilos específicos para el contenido dinámico */
-#contenido {
-    margin-top: 20px;
-}
-
-#infoAdmin {
-    margin-top: 20px;
-}
-
-#clientesRegistrados {
-    margin-top: 20px;
-}
-
-#productos {
-    margin-top: 20px;
+.content-container {
+    margin-left: 25%;
+    padding: 20px;
 }
