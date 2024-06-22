@@ -1,6 +1,17 @@
-fetch('../../php/administrador/informacion.php')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('infoAdmin').innerHTML = data;
-    })
-    .catch(error => console.error('Error al cargar la información del administrador:', error));
+// Función para abrir el modal
+function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Cerrar el modal si se hace clic fuera de él (opcional)
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

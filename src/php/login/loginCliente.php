@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include_once '../conexion.php';
 
@@ -26,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_stmt_get_result($stmt);
         
         if (mysqli_num_rows($result) == 1) {
+            $cliente = mysqli_fetch_assoc($result);
 
-            $admin = mysqli_fetch_assoc($result);
-            $nombreCliente = $fila['nombreCliente'];
-            
             // Iniciar sesión con información adicional
-            $_SESSION['idCliente'] = $admin['idCliente'];
-            $_SESSION['nombreCliente'] = $admin['nombreCliente'];
-            
+            $_SESSION['idCliente'] = $cliente['idCliente'];
+            $_SESSION['nombreCliente'] = $cliente['nombreCliente'];
+
+            // Redirigir con el nombre del cliente en la URL
+            $nombreCliente = $cliente['nombreCliente'];
             header("Location: ../../html/cliente/menuCliente.html?nombreCliente=" . urlencode($nombreCliente));
             exit();
         } else {
