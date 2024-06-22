@@ -18,6 +18,7 @@ $resultado = $stmt->get_result();
 if ($resultado->num_rows > 0) {
     $admin = $resultado->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -74,10 +75,10 @@ if ($resultado->num_rows > 0) {
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../../js/administrador/infoAdministrador.js"></script> <!-- JavaScript para el modal -->
 </body>
 </html>
-
 
 <?php
 } else {
