@@ -1,41 +1,46 @@
 <?php
-// Incluir la conexión a la base de datos
-include '../conexion.php';
 
-// Verificar si se han enviado los datos del formulario
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Obtener los datos del formulario
-    $usuario = $_POST['username'];
-    $contrasena = $_POST['password'];
+session_start();
+include_once '../conexion.php';
 
-    // Preparar la consulta para evitar inyección SQL
-    $stmt = $conexion->prepare("SELECT * FROM Cliente WHERE usuario = ?");
-    $stmt->bind_param("s", $usuario);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    // Verificar si se encontró el usuario
-    if ($resultado->num_rows > 0) {
-        $fila = $resultado->fetch_assoc();
-        // Verificar la contraseña
-        if (password_verify($contrasena, $fila['contrasena'])) {
-            // Inicio de sesión exitoso
+    // Consulta preparada para evitar inyección SQL
+    $sql = "SELECT * FROM Cliente WHERE usuario = ? AND contrasena = ?";
+    
+    // Preparar la consulta
+    $stmt = mysqli_stmt_init($conexion);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Error en la preparación de la consulta.";
+    } else {
+        // Vincular parámetros
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        
+        // Ejecutar consulta
+        mysqli_stmt_execute($stmt);
+        
+        // Obtener resultados
+        $result = mysqli_stmt_get_result($stmt);
+        
+        if (mysqli_num_rows($result) == 1) {
+
+            $admin = mysqli_fetch_assoc($result);
             $nombreCliente = $fila['nombreCliente'];
-            // Redirigir al dashboard personalizado del cliente con nombre en la URL
+            
+            // Iniciar sesión con información adicional
+            $_SESSION['idCliente'] = $admin['idCliente'];
+            $_SESSION['nombreCliente'] = $admin['nombreCliente'];
+            
             header("Location: ../../html/cliente/menuCliente.html?nombreCliente=" . urlencode($nombreCliente));
             exit();
         } else {
-            // Contraseña incorrecta
-            echo "Nombre de usuario o contraseña incorrectos.";
+            echo "Usuario o contraseña incorrectos.";
         }
-    } else {
-        // Usuario no encontrado
-        echo "Nombre de usuario o contraseña incorrectos.";
     }
-
-    // Cerrar la declaración y la conexión
-    $stmt->close();
+    mysqli_stmt_close($stmt);
+    mysqli_close($conexion);
 }
-
-$conexion->close();
 ?>
