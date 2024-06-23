@@ -26,7 +26,7 @@ if ($resultado->num_rows > 0) {
     <title>Información del Administrador</title>
     <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
     <link rel="stylesheet" href="../../css/administrador/modal.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
