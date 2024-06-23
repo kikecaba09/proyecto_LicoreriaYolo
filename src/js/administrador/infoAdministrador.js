@@ -1,16 +1,18 @@
-// JavaScript para el modal
-function openModal() {
-    document.getElementById("myModal").style.display = "block";
-}
+$(document).ready(function() {
+    // Abrir el modal
+    $('#editBtn').click(function() {
+        $('#myModal').css('display', 'block');
+    });
 
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-}
+    // Cerrar el modal cuando se hace clic en la X
+    $('.close').click(function() {
+        $('#myModal').css('display', 'none');
+    });
 
-// Cerrar el modal si se hace clic fuera de él
-window.onclick = function(event) {
-    var modal = document.getElementById("myModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+    // Cerrar el modal si se hace clic fuera de él
+    $(window).click(function(event) {
+        if ($(event.target).is('#myModal')) {
+            $('#myModal').css('display', 'none');
+        }
+    });
+});
