@@ -1,20 +1,19 @@
-// infoAdministrador.js
+// Función para abrir el modal
+function openModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
 
-$(document).ready(function() {
-    // Abrir el modal
-    $('#editBtn').on('click', function() {
-        $('#myModal').css('display', 'block');
-    });
+// Función para cerrar el modal
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
 
-    // Cerrar el modal cuando se hace clic en la X
-    $('.close').on('click', function() {
-        $('#myModal').css('display', 'none');
-    });
-
-    // Cerrar el modal si se hace clic fuera de él
-    $(window).on('click', function(event) {
-        if ($(event.target).is('#myModal')) {
-            $('#myModal').css('display', 'none');
-        }
-    });
-});
+// Cierra el modal si el usuario hace clic fuera de él
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

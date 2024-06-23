@@ -25,8 +25,7 @@ if ($resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información del Administrador</title>
     <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
-    <link rel="stylesheet" href="../../css/administrador/modal.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../../css/administrador/modal.css"> <!-- Estilos para el modal -->
 </head>
 <body>
     <div class="container">
@@ -45,14 +44,14 @@ if ($resultado->num_rows > 0) {
             </div>
         </div>
         <div class="edit-button">
-            <button id="editBtn" class="btn-edit">Editar Información</button>
+            <button onclick="openModal()" class="btn-edit">Editar Información</button>
         </div>
     </div>
 
     <!-- Modal para editar información del administrador -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2>Editar Información del Administrador</h2>
             <form id="editForm" action="procesarEditarAdministrador.php" method="POST">
                 <label for="nombre">Nombre:</label>
@@ -75,7 +74,8 @@ if ($resultado->num_rows > 0) {
         </div>
     </div>
 
-    <script src="../../js/administrador/infoAdministrador.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/administrador/infoAdministrador.js"></script> <!-- JavaScript para el modal -->
 </body>
 </html>
 
