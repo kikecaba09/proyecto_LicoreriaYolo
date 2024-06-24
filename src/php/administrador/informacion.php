@@ -45,7 +45,7 @@ if ($resultado->num_rows > 0) {
             </div>
         </div>
         <div class="edit-button">
-            <button id="btn-abrir-modal" class="btn-edit">Editar Información</button>
+            <button id="btn-abrir-modal">Editar Información</button>
         </div>
     </div>
 
