@@ -1,10 +1,32 @@
+<?php
+session_start();
+include '../conexion.php';
+
+// Verificar si el administrador está autenticado
+if (!isset($_SESSION['idAdministrador'])) {
+    echo "<p>No tienes permiso para acceder a esta información.</p>";
+    exit();
+}
+
+$idAdministrador = $_SESSION['idAdministrador'];
+$sql = "SELECT * FROM Administrador WHERE idAdministrador = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("i", $idAdministrador);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+    $admin = $resultado->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información del Administrador</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
+    <!-- Importar el script de JavaScript -->
+    <script src="../../js/administrador/infoAdministrador.js"></script>
 </head>
 <body>
     <div class="container">
@@ -23,13 +45,14 @@
             </div>
         </div>
         <div class="edit-button">
-            <button id="btn-abrir-modal">Editar Información</button>
+            <button id="btn-abrir-modal" class="btn-edit">Editar Información</button>
         </div>
     </div>
 
     <!-- Modal para editar información del administrador -->
     <dialog id="modal">
         <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2>Editar Información del Administrador</h2>
             <form id="editForm" action="procesarEditarAdministrador.php" method="POST">
                 <label for="nombre">Nombre:</label>
@@ -47,11 +70,19 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($admin['email']); ?>" required><br><br>
 
-                <input type="submit" id="btn-cerrar-modal" value="Guardar Cambios">
+                <input type="submit" value="Guardar Cambios">
+                <button id="btn-cerrar-modal">Cancelar</button>
             </form>
         </div>
     </dialog>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="index.js"></script> <!-- JavaScript para el modal -->
 </body>
 </html>
+
+<?php
+} else {
+    echo "<p>No se encontró la información del administrador.</p>";
+}
+
+$stmt->close();
+$conexion->close();
+?>

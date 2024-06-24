@@ -1,0 +1,66 @@
+/* administrador.css */
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 100%;
+    margin: 20px auto; /* Centra el contenedor en la página */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* administrador.css */
+
+/* Estilo para la lista de navegación */
+nav {
+    text-align: center; /* Centra los elementos de la navegación */
+    margin-top: 20px; /* Espacio superior */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Centra la lista horizontalmente */
+    display: inline-block; /* Muestra la lista de navegación en línea */
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo para los enlaces activos */
+nav ul li a.active {
+    border-bottom-color: #27ae60; /* Color de borde activo */
+    color: #27ae60; /* Color del texto activo */
+}
+
+/* Estilo para los enlaces en hover */
+nav ul li a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Media query para dispositivos más pequeños */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

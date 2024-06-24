@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador - Licorería YOLO</title>
+    <link rel="stylesheet" href="../../css/login/loginAdministrador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="split-container">
+        <div class="welcome-container">
+            <h2>¡Bienvenido, Administrador!</h2>
+            <p>
+                Estás a punto de ingresar al panel de administración de la Licorería YOLO. Aquí podrás gestionar 
+                de manera eficiente todas las operaciones relacionadas con nuestros clientes y productos. Como 
+                administrador, tendrás la capacidad de visualizar y gestionar los pedidos realizados por nuestros 
+                clientes, así como revisar y actualizar la información de cada uno de ellos.
+            </p>
+            <p>
+                Además, podrás agregar nuevos productos a nuestro catálogo, actualizarlos o eliminarlos según sea 
+                necesario, asegurando que nuestra oferta siempre esté al día y sea de la más alta calidad. Tu 
+                contribución es clave para mantener y mejorar la experiencia de compra en la Licorería YOLO.
+            </p>
+            <img src="../../img/login/bienvenidoAdministrador.jpg" alt="Imagen de bienvenida" class="welcome-image">
+        </div>
+        <div class="admin-login-container">
+            <h2 class="titulo-principal">Inicio de sesión como Administrador</h2>
+            <p>Ingrese sus credenciales</p>
+            <div class="admin-login-container-login">
+                <h2>Login</h2>
+                <form action="../../php/login/loginAdministrador.php" method="POST" id="login-form">
+                    <div class="input-container">
+                        <label for="admin-username"><i class="fa fa-user"></i> Usuario:</label>
+                        <input type="text" id="admin-username" name="username" class="input-field" required>
+                        <span class="error-message" id="username-error"></span>
+                    </div>
+                    
+                    <div class="input-container">
+                        <label for="admin-password"><i class="fa fa-lock"></i> Contraseña:</label>
+                        <input type="password" id="admin-password" name="password" class="input-field" required>
+                        <button type="button" id="toggle-password" class="toggle-password"><i class="fa fa-eye"></i></button>
+                        <span class="error-message" id="password-error"></span>
+                    </div>
+                    <button type="submit" class="submit-button">Ingresar</button>
+                </form>
+                <p class="olvido"><a href="recuperarContraseña.html">¿Olvidaste tu contraseña?</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript para funcionalidad adicional -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../js/login/loginAdministrador.js"></script>
+</body>
+</html>

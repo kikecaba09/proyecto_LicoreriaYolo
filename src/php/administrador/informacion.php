@@ -25,7 +25,8 @@ if ($resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información del Administrador</title>
     <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
-    
+    <!-- Importar el script de JavaScript -->
+    <script src="../../js/administrador/infoAdministrador.js"></script>
 </head>
 <body>
     <div class="container">
@@ -49,7 +50,7 @@ if ($resultado->num_rows > 0) {
     </div>
 
     <!-- Modal para editar información del administrador -->
-    <div id="modal">
+    <dialog id="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Editar Información del Administrador</h2>
@@ -73,9 +74,7 @@ if ($resultado->num_rows > 0) {
                 <button id="btn-cerrar-modal">Cancelar</button>
             </form>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/administrador/infoAdministrador.js"></script> <!-- JavaScript para el modal -->
+    </dialog>
 </body>
 </html>
 

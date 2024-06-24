@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); /* Importa la fuente "Roboto" con pesos específicos */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Color de fondo general */
+    color: #ddd;
+}
+
+.split-container {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura visible del viewport */
+}
+
+.welcome-container,
+.admin-login-container {
+    flex: 1; /* Ambas secciones ocupan el mismo espacio */
+    padding: 40px;
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de bienvenida */
+.welcome-container {
+    margin-right: -20px; 
+    background-color: #000;
+    color: #fff4f4;/* Ajuste negativo para eliminar el espacio entre las secciones */
+}
+/* Estilo para el texto de bienvenida */
+.welcome-container h2 {
+    font-size: 1.5em; /* Tamaño de fuente del título */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+
+.welcome-container p {
+    font-size: 1em; /* Tamaño de fuente de los párrafos */
+    margin: 10px 0; /* Márgenes superior e inferior para espaciar */
+    text-align: justify; /* Centra el texto */
+}
+
+/* Imagen de bienvenida */
+.welcome-image {
+    width: 50%; /* La imagen ocupa el 80% del contenedor */
+    max-width: 400px; /* Ancho máximo de 400px */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 20px; /* Margen superior para separar del contenido anterior */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra de la imagen */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    display: flex;
+    justify-content: space-between; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 20px;
+    background: linear-gradient(to bottom right, #2c2c2c, #6b6b6b); /* Fondo con un degradado de grises más claros */
+}
+
+/* Contenedor de login del administrador, centrado en la sección de formulario */
+.admin-login-container {
+    background: rgba(245, 245, 245, 0.8); /* Fondo negro semitransparente */
+    color: #000;
+    padding: 40px; /* Relleno interno */
+    width: 350px; /* Ancho fijo */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra del contenedor */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones para efectos */
+    display: flex; /* Utiliza flexbox para centrar contenido */
+    flex-direction: column; /* Organiza el contenido en una columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* Efecto hover para el contenedor de login */
+.admin-login-container:hover {
+    transform: translateY(-5px); /* Levanta el contenedor al pasar el cursor */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7); /* Incrementa la sombra */
+}
+
+.admin-login-container-login {
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    border: 2px solid #000;
+    background-color: #000;
+    color: #ddd;
+    border-radius: 20px;
+    width: 600px; /* Ancho deseado */
+    height: 420px; /* Altura deseada */
+}
+
+
+/* Título principal para el formulario */
+.titulo-principal {
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+    font-size: 2.5em; /* Tamaño de fuente grande */
+    text-align: center; /* Centra el texto */
+    text-shadow: 4px 2px 4px rgba(172, 34, 34, 0.5); /* Sombra de texto en un tono rojo oscuro */
+    gap: 15px;
+}
+
+/* Título secundario para la sección de login */
+h2 {
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+    font-size: 1.5em; /* Tamaño de fuente */
+}
+
+p{
+    font-size: 20px;
+}
+
+#login-form{
+    width: 70%;
+}
+
+/* Contenedor para los campos de entrada */
+.input-container {
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+    position: relative; /* Posicionamiento relativo para manejar elementos dentro */
+    text-align: left; /* Alinea a la izquierda el contenido */
+    align-items: center;
+    justify-content: center;
+    right: -60px;
+    
+}
+
+/* Estilos para las etiquetas */
+label {
+    width: 50%; /* Anchura completa del contenedor */
+    display: block; /* Hace que la etiqueta ocupe una línea completa */
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    animation: fadeInRight 0.8s;
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.toggle-password {
+    position: absolute; /* Posicionamiento absoluto dentro del contenedor */
+    right: 10px; /* Alinea a la derecha con un margen de 10px */
+    top: 55px; /* Alinea en la parte superior con un margen de 35px */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    color: #ff8f00; /* Color del icono del botón */
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+    color: #ff6f00; /* Color anaranjado para el mensaje de error */
+    font-size: 0.9em; /* Tamaño de fuente pequeño */
+    margin-top: 5px; /* Margen superior para separar del contenido anterior */
+    display: none; /* Oculta por defecto */
+}
+
+/* Botón de envío del formulario */
+.submit-button {
+    padding: 12px 200px;
+    right: 200px;
+    background-color: #44403a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    animation: fadeInUp 0.8s;
+    justify-content: space-between;
+}
+
+/* Efecto hover para el botón de envío */
+.submit-button{
+    background-color: #ff6f00; /* Cambia el color de fondo */
+}
+
+/* Efecto foco para el botón de envío */
+.submit-button {
+outline: none;
+}
+
+/* Efecto click para el botón de envío */
+.submit-button {
+transform: scale(0.98); /* Reduce ligeramente el tamaño */
+}
+
+.submit-button:hover{
+    background-color: #2c3bc0;
+}
+/* Estilos para los enlaces de recuperación de contraseña y ayuda */
+.olvido, .help {
+margin-top: 20px;
+font-size: 1em;
+}
+
+/* Estilos para los enlaces */
+.olvido a, .help a {
+color: #000000; /* Color de los enlaces */
+text-decoration: none;
+transition: color 0.3s, text-decoration 0.3s; /*Transiciones para efectos */
+}
+
+/* Efecto hover para los enlaces */
+.olvido a, .help a{
+text-decoration: underline; /* Subraya el texto */
+color: #ffffff; /* Cambia el color */
+}
+
+.olvido a:hover, .help a{
+    text-decoration: underline; /* Subraya el texto */
+    color: #e60d0d; /* Cambia el color */
+    }
