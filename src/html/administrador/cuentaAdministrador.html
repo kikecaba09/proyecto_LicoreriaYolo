@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Administrador</title>
+    <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../../js/administrador/infoAdministrador.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="admin-info">
+            <div class="admin-details">
+                <!-- Los datos del administrador se cargarán aquí -->
+                <h2>Información de mi cuenta</h2>
+                <div id="admin-info-content">Cargando información...</div>
+            </div>
+            <div class="admin-image">
+                <!-- La imagen del administrador se cargará aquí -->
+            </div>
+        </div>
+        <div class="edit-button">
+            <button id="btn-abrir-modal" class="btn-edit">Editar Información</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar información del administrador -->
+    <dialog id="modal">
+        <div class="modal-content">
+            <span class="close" id="btn-cerrar-modal">&times;</span>
+            <h2>Editar Información del Administrador</h2>
+            <form id="editForm" action="procesarEditarAdministrador.php" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required><br><br>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono"><br><br>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <input type="submit" value="Guardar Cambios">
+                <button type="button" id="btn-cerrar-modal" onclick="closeModal()">Cancelar</button>
+            </form>
+        </div>
+    </dialog>
+</body>
+</html>
