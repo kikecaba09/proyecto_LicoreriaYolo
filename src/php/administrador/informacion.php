@@ -25,7 +25,8 @@ if ($resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información del Administrador</title>
     <link rel="stylesheet" href="../../css/administrador/cuentaAdministrador.css">
-    <!-- Importar el script de JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../../js/administrador/infoAdministrador.js"></script>
 </head>
 <body>
@@ -45,7 +46,7 @@ if ($resultado->num_rows > 0) {
             </div>
         </div>
         <div class="edit-button">
-            <button id="btn-abrir-modal">Editar Información</button>
+            <button id="btn-abrir-modal" class="btn-edit">Editar Información</button>
         </div>
     </div>
 
