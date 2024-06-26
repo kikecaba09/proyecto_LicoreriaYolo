@@ -11,13 +11,20 @@ function cargarBienvenida() {
         .catch(error => console.error('Error al cargar la bienvenida:', error));
 }
 
-function cargarContenido(pagina) {
-    fetch(`../../php/admin/${pagina}`)
-        .then(response => response.text())
+function cargarContenido(url) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar la página');
+            }
+            return response.text();
+        })
         .then(data => {
             document.getElementById('contenido').innerHTML = data;
         })
-        .catch(error => console.error('Error al cargar el contenido:', error));
+        .catch(error => {
+            console.error('Hubo un problema al cargar el contenido:', error);
+        });
 }
 
 window.onload = function() {
