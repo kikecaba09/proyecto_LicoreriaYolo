@@ -69,12 +69,3 @@ body {
     background-color: #45a049; /* Color de fondo al pasar el ratón */
 }
 
-/* Media query para dispositivos más pequeños */
-@media (max-width: 600px) {
-    .admin-info {
-        flex-direction: column; /* Cambia a disposición de columna en dispositivos pequeños */
-    }
-    .admin-image {
-        margin-top: 10px; /* Espacio superior para la imagen en dispositivos pequeños */
-    }
-}
