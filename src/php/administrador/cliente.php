@@ -58,7 +58,7 @@ if ($resultado->num_rows > 0) {
                                 <input type="hidden" name="idCliente" value="<?php echo $fila['idCliente']; ?>">
                                 <button type="submit" class="btn-eliminar">Eliminar</button>
                             </form>
-                            <a href="../cliente/verPedidos.php?nombreCliente=<?php echo $fila['nombreCliente']; ?>" class="btn-ver-pedidos">Ver Pedidos</a>
+                            <a href="informacion.php?nombreCliente=<?php echo $fila['nombreCliente']; ?>" class="btn-ver-pedidos">Ver Pedidos</a>
                         </td>
                     </tr>
                     <?php } ?>
