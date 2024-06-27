@@ -1,4 +1,4 @@
-/* styles.css */
+/* cuentaAdministrador.css */
 
 /* Estilos generales */
 body {
@@ -48,6 +48,25 @@ body {
     height: auto;
     display: block; /* Evita el espacio adicional debajo de la imagen */
     border-radius: 50%; /* Opcional: redondea la imagen */
+}
+
+.edit-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-edit {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.btn-edit:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
 }
 
 /* Media query para dispositivos más pequeños */
