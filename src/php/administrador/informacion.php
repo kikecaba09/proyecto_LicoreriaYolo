@@ -74,7 +74,8 @@ if ($resultado->num_rows > 0) {
         </div>
     </dialog>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/administrador/infoAdministrador.js"></script> <!-- JavaScript para el modal -->
+    <script src="../../js/administrador/infoAdministrador.js" async></script>
+
 </body>
 </html>
 
