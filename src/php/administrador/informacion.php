@@ -75,10 +75,8 @@ if ($resultado->num_rows > 0) {
     </dialog>
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script src="../../js/administrador/infoAdministrador.js" async></script>
-
 </body>
 </html>
-
 <?php
 } else {
     echo "<p>No se encontró la información del administrador.</p>";
