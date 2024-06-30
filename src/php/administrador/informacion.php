@@ -49,7 +49,7 @@ if ($resultado->num_rows > 0) {
     </div>
 
     <!-- Modal para editar información del administrador -->
-    <div id="modal">
+    <dialog id="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Editar Información del Administrador</h2>
@@ -73,8 +73,7 @@ if ($resultado->num_rows > 0) {
                 <button id="btn-cerrar-modal">Cancelar</button>
             </form>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </dialog>
     <script src="../../js/administrador/infoAdministrador.js"></script> <!-- JavaScript para el modal -->
 </body>
 </html>
