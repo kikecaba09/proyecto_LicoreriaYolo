@@ -1,61 +1,99 @@
-// Función para cargar opciones de productos desde la base de datos
-function cargarOpcionesProductos(selectElement) {
-    // Realizar una petición AJAX para obtener los productos desde el servidor
-    $.ajax({
-        url: '../../php/Pedido/obtenerProductos.php', // Archivo PHP que obtiene los productos desde la base de datos
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            // Limpiar opciones actuales del select
-            selectElement.empty();
-            
-            // Agregar opción por defecto
-            selectElement.append($('<option>').text('Selecciona un producto').attr('value', ''));
-            
-            // Agregar cada producto como una opción en el select
-            data.forEach(function(producto) {
-                selectElement.append($('<option>').text(producto.nombre).attr('value', producto.idProducto));
+document.addEventListener('DOMContentLoaded', function() {
+    const contenedorProductos = document.getElementById('contenedor-productos');
+    const botonesCategorias = document.querySelectorAll('.boton-categoria');
+    const tituloPrincipal = document.getElementById('titulo-principal');
+    let productosEnCarrito = [];
+
+    // Cargar todos los productos al cargar la página
+    cargarProductos('todos');
+
+    // Escuchar clics en los botones de categoría
+    botonesCategorias.forEach(boton => {
+        boton.addEventListener('click', function() {
+            const categoria = boton.id;
+            cargarProductos(categoria);
+        });
+    });
+
+    function cargarProductos(categoria) {
+        fetch(`../../php/producto/productoCliente.php?categoria=${categoria}`)
+            .then(response => response.json())
+            .then(data => {
+                mostrarProductos(data, categoria);
+            })
+            .catch(error => {
+                console.error('Error al cargar productos:', error);
             });
-        },
-        error: function(xhr, status, error) {
-            console.error('Error al obtener productos:', error);
-        }
-    });
-}
-
-// Función para agregar dinámicamente los campos de productos
-function agregarCamposProducto() {
-    const cantidadProductos = document.getElementById('cantidad_productos').value;
-    const divProductos = document.getElementById('productos');
-    divProductos.innerHTML = ''; // Limpiar contenido anterior
-    
-    for (let i = 1; i <= cantidadProductos; i++) {
-        const nuevoProducto = document.createElement('div');
-        nuevoProducto.classList.add('producto');
-
-        nuevoProducto.innerHTML = `
-            <label for="producto${i}">Producto ${i}:</label>
-            <select name="productos[]" class="productoSelect" required>
-                <option value="">Selecciona un producto</option>
-                <!-- Opciones de productos se llenarán dinámicamente con JavaScript -->
-            </select>
-            
-            <label for="cantidad${i}">Cantidad:</label>
-            <input type="number" name="cantidades[]" class="cantidadInput" min="1" required><br><br>
-        `;
-
-        divProductos.appendChild(nuevoProducto);
-
-        // Obtener el select del nuevo producto y cargar las opciones desde la base de datos
-        const selectProducto = nuevoProducto.querySelector('.productoSelect');
-        cargarOpcionesProductos($(selectProducto));
     }
-}
 
-// Esperar a que el documento esté completamente cargado
-$(document).ready(function() {
-    // Agregar evento al botón "Agregar" para llamar a la función agregarCamposProducto
-    $('#agregar').click(function() {
-        agregarCamposProducto();
-    });
+    function mostrarProductos(productos, categoria) {
+        contenedorProductos.innerHTML = '';
+        tituloPrincipal.textContent = categoria === 'todos' ? 'Todos los productos' : categoria.charAt(0).toUpperCase() + categoria.slice(1);
+
+        productos.forEach(producto => {
+            const divProducto = document.createElement('div');
+            divProducto.classList.add('producto');
+
+            const cantidadDisponible = producto.cantidad;
+            const precioFormateado = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio);
+
+            divProducto.innerHTML = `
+                <div class="producto-contenido">
+                    <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">${producto.nombre}</h3>
+                        <p class="producto-precio">Precio: ${precioFormateado}</p>
+                        <p class="producto-cantidad">Cantidad disponible: ${cantidadDisponible}</p>
+                    </div>
+                </div>
+                <button class="producto-agregar" data-id="${producto.id}">Agregar</button>
+            `;
+
+            contenedorProductos.appendChild(divProducto);
+        });
+
+        // Actualizar botones agregar
+        actualizarBotonesAgregar();
+    }
+
+    function actualizarBotonesAgregar() {
+        const botonesAgregar = document.querySelectorAll('.producto-agregar');
+        botonesAgregar.forEach(boton => {
+            boton.addEventListener('click', agregarAlCarrito);
+        });
+    }
+
+    function agregarAlCarrito(event) {
+        const idProducto = event.target.dataset.id;
+        const productoSeleccionado = productosEnCarrito.find(producto => producto.id === idProducto);
+
+        if (productoSeleccionado) {
+            productoSeleccionado.cantidad++;
+        } else {
+            const producto = productos.find(p => p.id === idProducto);
+            productosEnCarrito.push({
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                cantidad: 1
+            });
+        }
+
+        // Guardar en localStorage
+        localStorage.setItem('productos-en-carrito', JSON.stringify(productosEnCarrito));
+
+        // Actualizar número en el carrito (si tienes un elemento numerito en tu HTML)
+        actualizarNumerito();
+    }
+
+    function actualizarNumerito() {
+        const numerito = document.getElementById('numerito');
+        const cantidadTotal = productosEnCarrito.reduce((total, producto) => total + producto.cantidad, 0);
+        numerito.textContent = cantidadTotal;
+    }
+
+    // Cargar productos en el carrito si existen
+    const productosEnCarritoLS = JSON.parse(localStorage.getItem('productos-en-carrito')) || [];
+    productosEnCarrito = productosEnCarritoLS;
+    actualizarNumerito();
 });
