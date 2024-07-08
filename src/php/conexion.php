@@ -1,10 +1,10 @@
 <?php
 
-$host = 'localhost'; 
-$usuario = 'root'; 
-$contraseña = ''; 
-$baseDeDatos = 'licoreriayolo'; 
-$puerto = 3308; 
+$host = 'localhost';
+$usuario = 'root';
+$contraseña = '';
+$baseDeDatos = 'licoreriayolo';
+$puerto = 3308;
 
 // Crear conexión
 $conexion = new mysqli($host, $usuario, $contraseña, $baseDeDatos, $puerto);
