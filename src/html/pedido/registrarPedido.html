@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrar Pedido</title>
+    <link rel="stylesheet" href="../../css/pedido/registrarPedido.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/pedido/registrarPedido.js"></script>
 </head>
 <body>
-    
+    <h2>Registrar Pedido</h2>
+    <form id="formularioPedido" action="registrar_pedido.php" method="post">
+        <label for="fecha_pedido">Fecha de Pedido:</label>
+        <input type="date" id="fecha_pedido" name="fecha_pedido" required><br><br>
+        
+        <label for="fecha_entrega">Fecha de Entrega:</label>
+        <input type="date" id="fecha_entrega" name="fecha_entrega" required><br><br>
+        
+        <label for="cantidad_productos">Cantidad de Productos:</label>
+        <input type="number" id="cantidad_productos" name="cantidad_productos" min="1" required>
+        <button type="button" id="agregar">Agregar</button><br><br>
+        
+        <div id="productos">
+            <!-- Aquí se agregarán dinámicamente los campos de productos -->
+        </div>
+        
+        <input type="submit" value="Registrar Pedido">
+    </form>
 </body>
 </html>
