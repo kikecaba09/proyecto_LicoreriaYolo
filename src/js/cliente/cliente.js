@@ -35,5 +35,5 @@ function cargarContenido(pagina) {
 
 window.onload = function() {
     // Llama a la función para cargar la información inicial (informacion.php)
-    cargarContenido('../../php/administrador/informacion.php');
+    cargarContenido('../../php/cliente/informacionCliente.php');
 };
