@@ -15,7 +15,7 @@ function cargarContenido(pagina) {
     const extension = pagina.endsWith('.php') ? 'php' : 'html';
     console.log(`Cargando contenido: ${pagina} (Extensión: ${extension})`);
 
-    const urlContenido = new URL(`../../php/admin/${pagina}`, window.location.href);
+    const urlContenido = new URL(pagina, window.location.href);
     console.log('URL de contenido:', urlContenido);
 
     fetch(urlContenido)
@@ -31,7 +31,6 @@ function cargarContenido(pagina) {
         })
         .catch(error => console.error('Error al cargar el contenido:', error));
 }
-
 
 window.onload = function() {
     // Llama a la función para cargar la información inicial (informacion.php)
