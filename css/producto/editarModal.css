@@ -8,21 +8,23 @@
     width: 100%; /* Toma todo el ancho */
     height: 100%; /* Toma toda la altura */
     overflow: auto; /* Permite desplazamiento si el contenido es demasiado grande */
-    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+    background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente */
     padding-top: 60px; /* Separación superior para la barra de título */
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #1c1c1c; /* Fondo negro */
+    color: #ffffff; /* Texto blanco */
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ccc;
     width: 60%; /* Ancho del contenido del modal */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 .close {
-    color: #aaa;
+    color: #ccc;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -30,7 +32,7 @@
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
@@ -50,6 +52,7 @@
 .column input[type="file"] {
     display: block;
     margin-bottom: 10px;
+    color: #ffffff; /* Texto blanco */
 }
 
 .column select,
@@ -59,6 +62,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #333333; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
 }
 
 .column textarea,
@@ -72,8 +77,8 @@
 }
 
 .column button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #000000; /* Negro */
+    color: #ffffff; /* Texto blanco */
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -87,5 +92,5 @@
 }
 
 .column button:hover {
-    background-color: #45a049;
+    background-color: #333333; /* Gris oscuro al pasar el mouse */
 }

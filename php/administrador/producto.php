@@ -59,6 +59,7 @@
                     <th>Descripción</th>
                     <th>Precio</th>
                     <th>Cantidad Disponible</th>
+                    <th>Descuento</th>
                     <th>En Oferta</th>
                     <th>Acciones</th>
                 </tr>
@@ -79,6 +80,7 @@
                             <td>" . htmlspecialchars($row["descripcion"]) . "</td>
                             <td>" . htmlspecialchars($row["precio"]) . "</td>
                             <td>" . htmlspecialchars($row["cantidad_disponible"]) . "</td>
+                            <td>" . htmlspecialchars($row["descuento"]) . "</td>
                             <td>" . $enOferta . "</td>
                             <td>
                                 <a href='#' onclick='openModalEditar(" . json_encode($row) . ")' class='btn-edit'>
@@ -99,29 +101,57 @@
     </div>
 
     <!-- Ventana Modal de Editar Producto -->
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModalEditar()">&times;</span>
-            <h2>Editar Producto</h2>
-            <form id="editForm" action="actualizarProducto.php" method="POST">
-                <input type="hidden" id="idProducto" name="idProducto">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre"><br><br>
-                <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcion" name="descripcion"><br><br>
-                <label for="precio">Precio:</label>
-                <input type="text" id="precio" name="precio"><br><br>
-                <label for="cantidad_disponible">Cantidad Disponible:</label>
-                <input type="text" id="cantidad_disponible" name="cantidad_disponible"><br><br>
-                <label for="en_oferta">En Oferta:</label>
-                <select id="en_oferta" name="en_oferta">
-                    <option value="1">Sí</option>
-                    <option value="0">No</option>
-                </select><br><br>
-                <button type="submit">Guardar Cambios</button>
-            </form>
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalEditar()">&times;</span>
+        <h2>Editar Producto</h2>
+        <div class="form-container">
+            <div class="column">
+                <form id="editForm" action="actualizarProducto.php" method="POST">
+                    <input type="hidden" id="idProducto" name="idProducto">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre"><br><br>
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion"><br><br>
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio" name="precio"><br><br>
+                    <label for="cantidad_disponible">Cantidad Disponible:</label>
+                    <input type="text" id="cantidad_disponible" name="cantidad_disponible"><br><br>
+                </div>
+                <div class="column">
+                <label for="idDescuento">Descuento:</label>
+                    <select id="idDescuento" name="idDescuento">
+                        <!-- Options will be dynamically loaded via PHP -->
+                        <?php
+                        include '../conexion.php';
+                        
+                        $sqlDescuentos = "SELECT idDescuento, porcentaje FROM Descuento";
+                        $resultDescuentos = $conexion->query($sqlDescuentos);
+                        
+                        if ($resultDescuentos->num_rows > 0) {
+                            while($rowDescuento = $resultDescuentos->fetch_assoc()) {
+                                echo "<option value='" . $rowDescuento['idDescuento'] . "'>" . $rowDescuento['porcentaje'] . "% de descuento</option>";
+                            }
+                        } else {
+                            echo "<option value=''>No hay descuentos disponibles</option>";
+                        }
+                        
+                        $conexion->close();
+                        ?>
+                    </select><br><br>
+
+                    <label for="en_oferta">En Oferta:</label>
+                    <select id="en_oferta" name="en_oferta">
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
+                    </select><br><br>
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
         </div>
     </div>
+</div>
+
 
     <!-- Ventana Modal de Agregar Producto -->
 <div id="addModal" class="modal">
@@ -133,7 +163,7 @@
                 <form id="addForm" action="procesar_producto.php" method="POST" enctype="multipart/form-data">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required><br><br>
-                    
+
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" name="descripcion"></textarea><br><br>
                     
@@ -238,6 +268,7 @@
             document.getElementById('descripcion').value = producto.descripcion;
             document.getElementById('precio').value = producto.precio;
             document.getElementById('cantidad_disponible').value = producto.cantidad_disponible;
+            document.getElementById('idDescuento').value = producto.descuento;
             document.getElementById('en_oferta').value = producto.en_oferta;
             document.getElementById('editModal').style.display = 'block';
         }
