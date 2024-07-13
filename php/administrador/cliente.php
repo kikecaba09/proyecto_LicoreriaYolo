@@ -42,7 +42,7 @@
 <td>" . $row["fechaRegistro"] . "</td>
 
                             <td>
-                                <a href='../Pedido/pedido.php?id=" . $row["idCliente"] . "' class='btn-edit'>VerPedidos</a>
+                                <a href='verPedidos.php?id=" . $row["idCliente"] . "' class='btn-edit'>VerPedidos</a>
                                 <a href='eliminarCliente.php?id=" . $row["idCliente"] . "' class='btn-delete'>Eliminar</a>
                             </td>
                         </tr>";
