@@ -142,7 +142,7 @@
         <h2>Agregar Producto</h2>
         <div class="form-container">
             <div class="column">
-                <form id="addForm" action="procesar_producto.php" method="POST" enctype="multipart/form-data">
+                <form id="addForm" action="../producto//agregarProducto.php" method="POST" enctype="multipart/form-data">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -208,25 +208,7 @@
                     </select><br><br>
                     
                     <label for="idDescuento">Descuento:</label>
-                    <select id="idDescuento" name="idDescuento">
-                        <!-- Options will be dynamically loaded via PHP -->
-                        <?php
-                        include '../conexion.php';
-                        
-                        $sqlDescuentos = "SELECT idDescuento, porcentaje FROM Descuento";
-                        $resultDescuentos = $conexion->query($sqlDescuentos);
-                        
-                        if ($resultDescuentos->num_rows > 0) {
-                            while($rowDescuento = $resultDescuentos->fetch_assoc()) {
-                                echo "<option value='" . $rowDescuento['idDescuento'] . "'>" . $rowDescuento['porcentaje'] . "% de descuento</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No hay descuentos disponibles</option>";
-                        }
-                        
-                        $conexion->close();
-                        ?>
-                    </select><br><br>
+                    <input type="text" id="descuento" name="descuento" required><br><br>
                     
                     <button type="submit">Agregar Producto</button>
                 </form>

@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $telefono = $_POST['telefono'];
 $direccion = $_POST['direccion'];
 $usuario = $_POST['usuario'];
-$contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
+$contrasena = $_POST['contrasena'];
 
 // Ruta de la carpeta de imágenes
 $target_dir = "../../img/Clientes/";
