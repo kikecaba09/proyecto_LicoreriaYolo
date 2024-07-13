@@ -74,7 +74,7 @@ a:hover {
     color: #0056b3;
 }
 
-.btn-eliminar {
+.btn-delete {
     padding: 8px 16px;
     margin-right: 5px;
     border: none;
@@ -87,7 +87,7 @@ a:hover {
     text-align: center;
 }
 
-.btn-ver-pedidos {
+.btn-edit {
     padding: 10px 10px;
     font-size: 11px;
     margin-right: 5px;

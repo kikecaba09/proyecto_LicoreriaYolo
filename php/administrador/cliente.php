@@ -24,52 +24,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    // Iniciar sesión si es necesario
-                    session_start();
+                <?php
+            include '../conexion.php';
 
-                    // Incluir el archivo de conexión a la base de datos
-                    include_once '../conexion.php';
+            $sql = "SELECT * FROM Cliente";
+            $result = $conexion->query($sql);
 
-                    // Verificar si el administrador está autenticado, si no, redirigir a la página de inicio de sesión
-                    if (!isset($_SESSION['idAdministrador'])) {
-                        header("Location: ../../html/login/loginAdministrador.html");
-                        exit();
-                    }
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td><img src='" . htmlspecialchars($row['imagen']) . "' alt='Imagen del Cliente'></td>
+<td>" . htmlspecialchars($row["nombreCliente"]) . "</td>
+<td>" . $row["edad"] . "</td>
+<td>" . htmlspecialchars($row["email"]) . "</td>
+<td>" . htmlspecialchars($row["telefono"]) . "</td>
+<td>" . htmlspecialchars($row["direccion"]) . "</td>
+<td>" . $row["fechaRegistro"] . "</td>
 
-                    // Consulta SQL para seleccionar todos los clientes
-                    $sql = "SELECT * FROM Cliente";
-                    $resultado = $conexion->query($sql);
+                            <td>
+                                <a href='../Pedido/pedido.php?id=" . $row["idCliente"] . "' class='btn-edit'>VerPedidos</a>
+                                <a href='eliminarCliente.php?id=" . $row["idCliente"] . "' class='btn-delete'>Eliminar</a>
+                            </td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No hay personal registrado</td></tr>";
+            }
 
-                    // Comprobar si hay resultados
-                    if ($resultado->num_rows > 0) {
-                        while ($fila = $resultado->fetch_assoc()) {
-                            ?>
-                            <tr>
-                                <td><img src="<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen del Cliente"></td>
-                                <td><?php echo htmlspecialchars($fila['nombreCliente']); ?></td>
-                                <td><?php echo $fila['edad']; ?></td>
-                                <td><?php echo htmlspecialchars($fila['email']); ?></td>
-                                <td><?php echo htmlspecialchars($fila['telefono']); ?></td>
-                                <td><?php echo htmlspecialchars($fila['direccion']); ?></td>
-                                <td><?php echo $fila['fechaRegistro']; ?></td>
-                                <td>
-                                    <form action="eliminarCliente.php" method="POST">
-                                        <input type="hidden" name="idCliente" value="<?php echo $fila['idCliente']; ?>">
-                                        <button type="submit" class="btn-eliminar">Eliminar</button>
-                                    </form>
-                                    <a href="verPedidos.php" class="btn-ver-pedidos">Ver Pedidos</a>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                    } else {
-                        echo "<tr><td colspan='8'>No se encontraron clientes registrados.</td></tr>";
-                    }
-
-                    // Cerrar la conexión y liberar recursos
-                    $conexion->close();
-                    ?>
+            $conexion->close();
+            ?>
                 </tbody>
             </table>
         </div>
