@@ -41,7 +41,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <th>Fecha de Pedido</th>
                         <th>Fecha de Entrega</th>
                         <th>Estado</th>
-                        <th>ID del Detalle</th>
                         <th>Nombre del Producto</th>
                         <th>Cantidad</th>
                         <th>Subtotal</th>
@@ -65,11 +64,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                     <td>{$pedidoActual['fecha_pedido']}</td>
                                     <td>{$pedidoActual['fecha_entrega']}</td>
                                     <td>{$pedidoActual['estado']}</td>
-                                    <td>{$row['idDetallePedido']}</td>
                                     <td>{$row['nombreProducto']}</td>
                                     <td>{$row['cantidad']}</td>
                                     <td>{$row['subtotal']}</td>
-                                  </tr>";
+                                </tr>";
                         } else {
                             // Mostrar detalles adicionales del mismo pedido
                             echo "<tr>

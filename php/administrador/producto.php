@@ -1,23 +1,3 @@
-<?php
-// Iniciar sesión si es necesario
-session_start();
-
-// Incluir el archivo de conexión a la base de datos
-include_once '../conexion.php';
-
-// Verificar si el administrador está autenticado, si no, redirigir a la página de inicio de sesión
-if (!isset($_SESSION['idAdministrador'])) {
-    header("Location: ../../html/login/loginAdministrador.html");
-    exit();
-}
-
-// Consulta SQL para seleccionar todos los productos disponibles
-$sql = "SELECT * FROM Producto";
-$resultado = $conexion->query($sql);
-
-// Comprobar si hay resultados
-if ($resultado->num_rows > 0) {
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +5,7 @@ if ($resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos Disponibles</title>
     <link rel="stylesheet" href="../../css/administrador/productoAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -43,20 +24,35 @@ if ($resultado->num_rows > 0) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($fila = $resultado->fetch_assoc()) { ?>
-                    <tr>
-                        <td><img src="<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen del Producto"></td>
-                        <td><?php echo htmlspecialchars($fila['nombre']); ?></td>
-                        <td><?php echo htmlspecialchars($fila['descripcion']); ?></td>
-                        <td><?php echo number_format($fila['precio'], 2); ?></td>
-                        <td><?php echo $fila['cantidad_disponible']; ?></td>
-                        <td><?php echo $fila['en_oferta'] ? 'Sí' : 'No'; ?></td>
-                        <td>
-                            <button onclick="verDetalles(<?php echo $fila['idProducto']; ?>)">Modificar</button>
-                            <button onclick="eliminarProducto(<?php echo $fila['idProducto']; ?>)">Eliminar</button>
-                        </td>
-                    </tr>
-                    <?php } ?>
+                <?php
+                include '../conexion.php';
+
+                $sql = "SELECT * FROM Producto";
+                $result = $conexion->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td><img src='" . htmlspecialchars($row['imagen']) . "' alt='Imagen del Cliente'></td>
+                                <td>" . htmlspecialchars($row["nombre"]) . "</td>
+                                <td>" . $row["descripcion"] . "</td>
+                                <td>" . htmlspecialchars($row["precio"]) . "</td>
+                                <td>" . htmlspecialchars($row["cantidad_disponible"]) . "</td>
+                                <td>" . htmlspecialchars($row["en_oferta"]) . "</td>
+                                <td>
+                                    <a href='verPedidos.php?id=" . $row["idProducto"] . "' class='btn-edit'>
+                                    <i class='fa fa-pencil'></i></a>
+                                    <a href='#' onclick='eliminarCliente(" . $row["idProducto"] . "); return false;' class='btn-delete'>
+                                    <i class='fa fa-trash'></i> <!-- Icono de basura -->
+                                    </td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='8'>No hay ´Productos registrados</td></tr>";
+                }
+
+                $conexion->close();
+                ?>
                 </tbody>
             </table>
         </div>
@@ -64,11 +60,3 @@ if ($resultado->num_rows > 0) {
     <script src="../../js/administrador/productosAdministrador.js"></script>
 </body>
 </html>
-<?php
-} else {
-    echo "<p>No se encontraron productos disponibles.</p>";
-}
-
-// Cerrar la conexión y liberar recursos
-$conexion->close();
-?>
