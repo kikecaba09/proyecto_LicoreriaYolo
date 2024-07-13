@@ -119,26 +119,8 @@
                     <input type="text" id="cantidad_disponible" name="cantidad_disponible"><br><br>
                 </div>
                 <div class="column">
-                <label for="idDescuento">Descuento:</label>
-                    <select id="idDescuento" name="idDescuento">
-                        <!-- Options will be dynamically loaded via PHP -->
-                        <?php
-                        include '../conexion.php';
-                        
-                        $sqlDescuentos = "SELECT idDescuento, porcentaje FROM Descuento";
-                        $resultDescuentos = $conexion->query($sqlDescuentos);
-                        
-                        if ($resultDescuentos->num_rows > 0) {
-                            while($rowDescuento = $resultDescuentos->fetch_assoc()) {
-                                echo "<option value='" . $rowDescuento['idDescuento'] . "'>" . $rowDescuento['porcentaje'] . "% de descuento</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No hay descuentos disponibles</option>";
-                        }
-                        
-                        $conexion->close();
-                        ?>
-                    </select><br><br>
+                <label for="descuento">Descuento:</label>
+                <input type="text" id="descuento" name="descuento"><br><br>
 
                     <label for="en_oferta">En Oferta:</label>
                     <select id="en_oferta" name="en_oferta">
@@ -268,7 +250,7 @@
             document.getElementById('descripcion').value = producto.descripcion;
             document.getElementById('precio').value = producto.precio;
             document.getElementById('cantidad_disponible').value = producto.cantidad_disponible;
-            document.getElementById('idDescuento').value = producto.descuento;
+            document.getElementById('descuento').value = producto.descuento;
             document.getElementById('en_oferta').value = producto.en_oferta;
             document.getElementById('editModal').style.display = 'block';
         }

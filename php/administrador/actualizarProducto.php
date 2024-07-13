@@ -7,7 +7,7 @@ $nombre = $_POST['nombre'];
 $descripcion = $_POST['descripcion'];
 $precio = $_POST['precio'];
 $cantidad_disponible = $_POST['cantidad_disponible'];
-$idDescuento = $_POST['idDescuento'];
+$descuento = $_POST['descuento'];
 $en_oferta = $_POST['en_oferta'];
 
 // Crear la consulta SQL para actualizar el producto
@@ -16,7 +16,7 @@ $sql = "UPDATE Producto SET
     descripcion = ?,
     precio = ?,
     cantidad_disponible = ?,
-    idDescuento = ?,
+    descuento = ?,
     en_oferta = ?
     WHERE idProducto = ?";
 
@@ -29,7 +29,7 @@ if ($stmt === false) {
 }
 
 // Bindear los parámetros a la declaración
-$stmt->bind_param('ssdiii', $nombre, $descripcion, $precio, $cantidad_disponible,$idDescuento, $en_oferta, $idProducto);
+$stmt->bind_param('ssdiiii', $nombre, $descripcion, $precio, $cantidad_disponible,$descuento, $en_oferta, $idProducto);
 
 // Ejecutar la declaración
 if ($stmt->execute()) {
