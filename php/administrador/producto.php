@@ -6,6 +6,7 @@
     <title>Productos Disponibles</title>
     <link rel="stylesheet" href="../../css/administrador/productoAdmin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../css/producto//editarModal.css"> <!-- Enlace al archivo CSS de la ventana modal -->
 </head>
 <body>
     <div class="container">
@@ -32,17 +33,18 @@
 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
+                        $enOferta = $row["en_oferta"] == 1 ? "Sí" : "No";
                         echo "<tr>
                                 <td><img src='" . htmlspecialchars($row['imagen']) . "' alt='Imagen del Cliente'></td>
                                 <td>" . htmlspecialchars($row["nombre"]) . "</td>
-                                <td>" . $row["descripcion"] . "</td>
+                                <td>" . htmlspecialchars($row["descripcion"]) . "</td>
                                 <td>" . htmlspecialchars($row["precio"]) . "</td>
                                 <td>" . htmlspecialchars($row["cantidad_disponible"]) . "</td>
-                                <td>" . htmlspecialchars($row["en_oferta"]) . "</td>
+                                <td>" . $enOferta . "</td>
                                 <td>
-                                    <a href='verPedidos.php?id=" . $row["idProducto"] . "' class='btn-edit'>
+                                    <a href='#' onclick='openModal(" . json_encode($row) . ")' class='btn-edit'>
                                     <i class='fa fa-pencil'></i></a>
-                                    <a href='#' onclick='eliminarCliente(" . $row["idProducto"] . "); return false;' class='btn-delete'>
+                                    <a href='#' onclick='eliminarProducto(" . $row["idProducto"] . "); return false;' class='btn-delete'>
                                     <i class='fa fa-trash'></i></a>
                                 </td>
                             </tr>";
@@ -57,6 +59,55 @@
             </table>
         </div>
     </div>
-    <script src="../../js/administrador/productosAdministrador.js"></script>
+
+    <!-- Ventana Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Editar Producto</h2>
+            <form id="editForm" action="actualizarProducto.php" method="POST">
+                <input type="hidden" id="idProducto" name="idProducto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br><br>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion"><br><br>
+                <label for="precio">Precio:</label>
+                <input type="text" id="precio" name="precio"><br><br>
+                <label for="cantidad_disponible">Cantidad Disponible:</label>
+                <input type="text" id="cantidad_disponible" name="cantidad_disponible"><br><br>
+                <label for="en_oferta">En Oferta:</label>
+                <select id="en_oferta" name="en_oferta">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select><br><br>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para manejar la apertura y cierre de la ventana modal
+        function openModal(producto) {
+            document.getElementById('idProducto').value = producto.idProducto;
+            document.getElementById('nombre').value = producto.nombre;
+            document.getElementById('descripcion').value = producto.descripcion;
+            document.getElementById('precio').value = producto.precio;
+            document.getElementById('cantidad_disponible').value = producto.cantidad_disponible;
+            document.getElementById('en_oferta').value = producto.en_oferta;
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // Cierra la ventana modal si el usuario hace clic fuera de ella
+        window.onclick = function(event) {
+            var modal = document.getElementById('editModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
