@@ -1,31 +1,24 @@
-/* modal.css */
+/* Estilos para el modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
+    display: none; /* Por defecto, el modal está oculto */
+    position: fixed; /* Permanece fijo en la ventana */
+    z-index: 1; /* Por encima de todo */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    width: 100%; /* Toma todo el ancho */
+    height: 100%; /* Toma toda la altura */
+    overflow: auto; /* Permite desplazamiento si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+    padding-top: 60px; /* Separación superior para la barra de título */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; /* Ajuste del ancho de la ventana modal */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    animation: animateModal 0.4s;
-    border-radius: 8px; /* Bordes redondeados */
-}
-
-@keyframes animateModal {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    width: 60%; /* Ancho del contenido del modal */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .close {
@@ -42,47 +35,57 @@
     cursor: pointer;
 }
 
-.modal h2 {
-    margin-top: 0;
-    font-size: 24px;
-}
-
-.modal form {
+/* Estilos para la distribución de columnas */
+.form-container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 }
 
-.modal label {
-    margin: 10px 0 5px;
-    font-weight: bold;
+.column {
+    width: 45%; /* Ancho de cada columna */
 }
 
-.modal input[type="text"], .modal select {
-    padding: 10px;
+.column label,
+.column select,
+.column input[type="file"] {
+    display: block;
     margin-bottom: 10px;
+}
+
+.column select,
+.column input[type="file"] {
+    width: 100%;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
     box-sizing: border-box;
 }
 
-.modal button[type="submit"] {
+.column textarea,
+.column input[type="text"],
+.column input[type="number"] {
+    width: calc(100% - 20px); /* Ajusta el ancho del campo de entrada */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.column button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin-top: 10px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.modal button[type="submit"]:hover {
+.column button:hover {
     background-color: #45a049;
-}
-
-/* Agregar transiciones para una experiencia más suave */
-.modal input[type="text"], .modal select, .modal button[type="submit"] {
-    transition: all 0.3s ease;
 }

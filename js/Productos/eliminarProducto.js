@@ -1,5 +1,5 @@
 function eliminarProducto(idProducto) {
-    console.log('Intentando eliminar producto con ID:', idProducto); // Verificar que la función se está llamando correctamente
+    console.log('Intentando eliminar producto con ID:', idProducto);
     Swal.fire({
         title: '¿Estás seguro?',
         text: "Esta acción no se puede deshacer.",
@@ -10,24 +10,22 @@ function eliminarProducto(idProducto) {
         confirmButtonText: 'Sí, eliminar'
     }).then((result) => {
         if (result.isConfirmed) {
-            // Petición AJAX para eliminar el cliente
             $.ajax({
                 url: '../../php/administrador/eliminarProducto.php',
                 type: 'POST',
                 dataType: 'json',
-                data: { idCliente: idCliente },
+                data: { idProducto: idProducto },
                 success: function (response) {
                     console.log(response); // Verificar la respuesta del servidor
                     if (response.status === 'success') {
                         Swal.fire({
-                            title: 'Cliente eliminado',
+                            title: 'Producto eliminado',
                             text: response.message,
                             icon: 'success',
                             timer: 2000,
                             showConfirmButton: false
                         }).then(function () {
-                            // Recargar la página después de eliminar el cliente
-                            location.reload();
+                            location.reload(); // Recargar la página después de eliminar
                         });
                     } else {
                         Swal.fire({
@@ -43,7 +41,7 @@ function eliminarProducto(idProducto) {
                     console.error('Error en la solicitud AJAX:', error); // Verificar errores en la solicitud AJAX
                     Swal.fire({
                         title: 'Error',
-                        text: 'Se produjo un error al eliminar el cliente.',
+                        text: 'Se produjo un error al eliminar el producto.',
                         icon: 'error',
                         timer: 2000,
                         showConfirmButton: false

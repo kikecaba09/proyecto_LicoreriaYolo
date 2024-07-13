@@ -1,42 +1,58 @@
 <?php
-// Verifica si se ha enviado un ID de producto válido
-if (isset($_GET['id'])) {
-    // Conecta a la base de datos (asegúrate de incluir tu archivo de conexión adecuadamente)
-    include '../conexion.php';
+include '../conexion.php';
 
-    // Escapa el ID del producto para evitar inyecciones SQL
-    $idProducto = mysqli_real_escape_string($conexion, $_GET['id']);
+// Verificar si el ID del producto se ha pasado como parámetro en POST
+if (isset($_POST['idProducto']) && !empty($_POST['idProducto'])) {
+    // Obtener y sanitizar el ID del producto
+    $idProducto = intval($_POST['idProducto']);
 
-    // Inicia una transacción para asegurar la integridad de los datos
-    mysqli_autocommit($conexion, false);
-    $error = false;
+    // Iniciar una transacción
+    $conexion->begin_transaction();
 
-    // Elimina el producto de la tabla Producto
-    $sqlProducto = "DELETE FROM Producto WHERE idProducto = '$idProducto'";
-    if (!$conexion->query($sqlProducto)) {
-        $error = true;
+    try {
+        // Preparar la consulta para eliminar detalles de pedidos relacionados con el producto
+        $sqlEliminarDetallesPedidos = "DELETE FROM DetallePedido WHERE idProducto = ?";
+        $stmtEliminarDetallesPedidos = $conexion->prepare($sqlEliminarDetallesPedidos);
+        $stmtEliminarDetallesPedidos->bind_param('i', $idProducto);
+        $stmtEliminarDetallesPedidos->execute();
+
+        // Preparar la consulta para eliminar el producto
+        $sqlEliminarProducto = "DELETE FROM Producto WHERE idProducto = ?";
+        $stmtEliminarProducto = $conexion->prepare($sqlEliminarProducto);
+        $stmtEliminarProducto->bind_param('i', $idProducto);
+        $stmtEliminarProducto->execute();
+
+        // Comprobar si se eliminaron registros en ambas tablas
+        if ($stmtEliminarDetallesPedidos->affected_rows > 0 && $stmtEliminarProducto->affected_rows > 0) {
+            // Confirmar la transacción si todas las operaciones fueron exitosas
+            $conexion->commit();
+
+            // Enviar una respuesta JSON al cliente
+            $response = array('status' => 'success', 'message' => 'Producto eliminado correctamente');
+            echo json_encode($response);
+        } else {
+            // Si no se eliminaron registros en alguna tabla, revertir la transacción
+            $conexion->rollback();
+            $response = array('status' => 'error', 'message' => 'Error al eliminar el producto');
+            echo json_encode($response);
+        }
+
+        // Cerrar las declaraciones preparadas
+        $stmtEliminarDetallesPedidos->close();
+        $stmtEliminarProducto->close();
+
+    } catch (Exception $e) {
+        // Manejar cualquier excepción que pueda ocurrir
+        $conexion->rollback();
+        $response = array('status' => 'error', 'message' => 'Error en la transacción: ' . $e->getMessage());
+        echo json_encode($response);
     }
-
-    // Elimina los registros relacionados en DetallePedido si existen
-    $sqlDetallePedido = "DELETE FROM DetallePedido WHERE idProducto = '$idProducto'";
-    if (!$conexion->query($sqlDetallePedido)) {
-        $error = true;
-    }
-
-    // Verifica si ocurrió algún error durante las eliminaciones
-    if ($error) {
-        mysqli_rollback($conexion); // Revierte la transacción si hubo algún error
-        echo "Error al eliminar el producto y sus registros relacionados.";
-    } else {
-        mysqli_commit($conexion); // Confirma la transacción si todo fue exitoso
-        header('Location: productos.php'); // Redirige a la página de productos después de eliminar
-        exit;
-    }
-
-    // Cierra la conexión a la base de datos
-    $conexion->close();
 } else {
-    // Manejo si no se proporcionó un ID válido
-    echo "ID de producto no especificado.";
+    // Si no se pasa un ID válido, enviar una respuesta de error
+    $response = array('status' => 'error', 'message' => 'ID de producto no válido');
+    echo json_encode($response);
 }
+
+// Cerrar la conexión a la base de datos
+$conexion->close();
 ?>
