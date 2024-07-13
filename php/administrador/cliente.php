@@ -1,23 +1,3 @@
-<?php
-// Iniciar sesión si es necesario
-session_start();
-
-// Incluir el archivo de conexión a la base de datos
-include_once '../conexion.php';
-
-// Verificar si el administrador está autenticado, si no, redirigir a la página de inicio de sesión
-if (!isset($_SESSION['idAdministrador'])) {
-    header("Location: ../../html/login/loginAdministrador.html");
-    exit();
-}
-
-// Consulta SQL para seleccionar todos los clientes
-$sql = "SELECT * FROM Cliente";
-$resultado = $conexion->query($sql);
-
-// Comprobar si hay resultados
-if ($resultado->num_rows > 0) {
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,35 +24,55 @@ if ($resultado->num_rows > 0) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($fila = $resultado->fetch_assoc()) { ?>
-                    <tr>
-                        <td><img src="<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen del Cliente"></td>
-                        <td><?php echo htmlspecialchars($fila['nombreCliente']); ?></td>
-                        <td><?php echo $fila['edad']; ?></td>
-                        <td><?php echo htmlspecialchars($fila['email']); ?></td>
-                        <td><?php echo htmlspecialchars($fila['telefono']); ?></td>
-                        <td><?php echo htmlspecialchars($fila['direccion']); ?></td>
-                        <td><?php echo $fila['fechaRegistro']; ?></td>
-                        <td>
-                            <form action="eliminarCliente.php" method="POST">
-                                <input type="hidden" name="idCliente" value="<?php echo $fila['idCliente']; ?>">
-                                <button type="submit" class="btn-eliminar">Eliminar</button>
-                            </form>
-                            <a href="verPedidos.php?idCliente=<?php echo $fila['idCliente']; ?>" class="btn-ver-pedidos">Ver Pedidos</a>
-                        </td>
-                    </tr>
-                    <?php } ?>
+                    <?php
+                    // Iniciar sesión si es necesario
+                    session_start();
+
+                    // Incluir el archivo de conexión a la base de datos
+                    include_once '../conexion.php';
+
+                    // Verificar si el administrador está autenticado, si no, redirigir a la página de inicio de sesión
+                    if (!isset($_SESSION['idAdministrador'])) {
+                        header("Location: ../../html/login/loginAdministrador.html");
+                        exit();
+                    }
+
+                    // Consulta SQL para seleccionar todos los clientes
+                    $sql = "SELECT * FROM Cliente";
+                    $resultado = $conexion->query($sql);
+
+                    // Comprobar si hay resultados
+                    if ($resultado->num_rows > 0) {
+                        while ($fila = $resultado->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <td><img src="<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen del Cliente"></td>
+                                <td><?php echo htmlspecialchars($fila['nombreCliente']); ?></td>
+                                <td><?php echo $fila['edad']; ?></td>
+                                <td><?php echo htmlspecialchars($fila['email']); ?></td>
+                                <td><?php echo htmlspecialchars($fila['telefono']); ?></td>
+                                <td><?php echo htmlspecialchars($fila['direccion']); ?></td>
+                                <td><?php echo $fila['fechaRegistro']; ?></td>
+                                <td>
+                                    <form action="eliminarCliente.php" method="POST">
+                                        <input type="hidden" name="idCliente" value="<?php echo $fila['idCliente']; ?>">
+                                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                                    </form>
+                                    <a href="verPedidos.php" class="btn-ver-pedidos">Ver Pedidos</a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                    } else {
+                        echo "<tr><td colspan='8'>No se encontraron clientes registrados.</td></tr>";
+                    }
+
+                    // Cerrar la conexión y liberar recursos
+                    $conexion->close();
+                    ?>
                 </tbody>
             </table>
         </div>
     </div>
 </body>
 </html>
-<?php
-} else {
-    echo "<p>No se encontraron clientes registrados.</p>";
-}
-
-// Cerrar la conexión y liberar recursos
-$conexion->close();
-?>

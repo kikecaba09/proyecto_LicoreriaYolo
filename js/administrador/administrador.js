@@ -15,7 +15,7 @@ function cargarContenido(pagina) {
     const extension = pagina.endsWith('.php') ? 'php' : 'html';
     console.log(`Cargando contenido: ${pagina} (Extensión: ${extension})`);
 
-    const urlContenido = new URL(`../../php/admin/${pagina}`, window.location.href);
+    const urlContenido = new URL(`../../php/administrador/${pagina}`, window.location.href);
     console.log('URL de contenido:', urlContenido);
 
     fetch(urlContenido)

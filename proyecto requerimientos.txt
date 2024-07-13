@@ -21,7 +21,7 @@ productos
 - si se especifica cierta cantidad de productos se aplicara un descuento
 - si el producto esta en oferta se vera un descuento
 - ademas si ya la cantidad de productos esta en 0 me aparecera que el producto ya no esta disponible
-- ademas quiero ver si estan disponibles o no 
+- ademas quiero ver si estan disponibles o no
 - la cantidad ira disminuyendo mientras los clientes van haciendo pedidos
 
 pedidos:
