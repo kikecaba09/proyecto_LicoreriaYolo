@@ -43,12 +43,12 @@
                                     <a href='verPedidos.php?id=" . $row["idProducto"] . "' class='btn-edit'>
                                     <i class='fa fa-pencil'></i></a>
                                     <a href='#' onclick='eliminarCliente(" . $row["idProducto"] . "); return false;' class='btn-delete'>
-                                    <i class='fa fa-trash'></i> <!-- Icono de basura -->
-                                    </td>
+                                    <i class='fa fa-trash'></i></a>
+                                </td>
                             </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='8'>No hay ´Productos registrados</td></tr>";
+                    echo "<tr><td colspan='7'>No hay Productos registrados</td></tr>";
                 }
 
                 $conexion->close();
