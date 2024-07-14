@@ -208,7 +208,7 @@
                     </select><br><br>
                     
                     <label for="idDescuento">Descuento:</label>
-                    <input type="text" id="descuento" name="descuento" required><br><br>
+                    <input type="text" id="precio" name="precio" required><br><br>
                     
                     <button type="submit">Agregar Producto</button>
                 </form>

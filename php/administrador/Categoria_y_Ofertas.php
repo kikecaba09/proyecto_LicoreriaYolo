@@ -1,65 +1,76 @@
-<?php
-include_once '../conexion.php';
-
-// Consulta para obtener las categorías
-$sqlCategorias = "SELECT * FROM Categoria";
-$resultadoCategorias = $conexion->query($sqlCategorias);
-
-// Consulta para obtener las ofertas
-$sqlOfertas = "SELECT * FROM Oferta";
-$resultadoOfertas = $conexion->query($sqlOfertas);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorías y Ofertas</title>
-    <link rel="stylesheet" href="../../css/administrador/categoriaOfertas.css">
-    <!-- Font Awesome (Asegúrate de tener la última versión de Font Awesome incluida) -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Tu archivo de estilos personalizados -->
+    <link rel="stylesheet" href="../../css//administrador//categoriaOfertas.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo-principal">Categorías y Ofertas</h1>
-        
+        <h1 class="titulo-principal text-center">Categorías y Ofertas</h1>
         <!-- Sección de Categorías -->
         <div class="seccion">
-            <h2>Categorías</h2>
-            <?php if ($resultadoCategorias->num_rows > 0) { ?>
-                <table class="tabla">
-                    <thead>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Categorías</h2>
+                <a href="agregar_categoria.php" class="btn btn-success"><i class="fas fa-plus"></i> Agregar Categoría</a>
+            </div>
+                <table class="table mt-3">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Nombre de la Categoría</th>
+                            <th>Descripcion</th>
+                            <th>Activo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($categoria = $resultadoCategorias->fetch_assoc()) { ?>
-                            <tr>
-                                <td><?php echo $categoria['idCategoria']; ?></td>
-                                <td><?php echo htmlspecialchars($categoria['nombreCategoria']); ?></td>
-                                <td>
-                                    <a href="modificar_categoria.php?id=<?php echo $categoria['idCategoria']; ?>" class="boton"><i class="fas fa-edit"></i></a>
-                                    <a href="eliminar_categoria.php?id=<?php echo $categoria['idCategoria']; ?>" class="boton eliminar" onclick="return confirm('¿Está seguro de que desea eliminar esta categoría?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                    <?php
+            include '../conexion.php';
+
+            $sql = "SELECT * FROM Categoria";
+            $result = $conexion->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $activo = $row["activo"] == 1 ? "Sí" : "No";
+                    echo "<tr>
+                            <td>" . htmlspecialchars($row["idCategoria"]) . "</td>
+                            <td>" . htmlspecialchars($row["nombreCategoria"]) . "</td>
+                            <td>" . htmlspecialchars($row["descripcion"]) . "</td>
+                            <td>" . $activo . "</td>
+                            <td>
+                                <a href='#' onclick='openModalEditar(" . json_encode($row) . ")' class='btn-edit'>
+                                <i class='fa fa-pencil'></i></a>
+                                <a href='#' onclick='eliminarProducto(" . $row["idCategoria"] . "); return false;' class='btn-delete'>
+                                <i class='fa fa-trash'></i></a>
+                            </td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No hay Productos registrados</td></tr>";
+            }
+
+            $conexion->close();
+            ?>
                     </tbody>
                 </table>
-            <?php } else { ?>
-                <p>No hay categorías disponibles.</p>
-            <?php } ?>
         </div>
         
         <!-- Sección de Ofertas -->
         <div class="seccion">
-            <h2>Ofertas</h2>
-            <?php if ($resultadoOfertas->num_rows > 0) { ?>
-                <table class="tabla">
-                    <thead>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Ofertas</h2>
+                <a href="agregar_oferta.php" class="btn btn-success"><i class="fas fa-plus"></i> Agregar Oferta</a>
+            </div>
+                <table class="table mt-3">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Motivo</th>
@@ -69,29 +80,40 @@ $resultadoOfertas = $conexion->query($sqlOfertas);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($oferta = $resultadoOfertas->fetch_assoc()) { ?>
-                            <tr>
-                                <td><?php echo $oferta['idOferta']; ?></td>
-                                <td><?php echo htmlspecialchars($oferta['motivo']); ?></td>
-                                <td><?php echo $oferta['fecha_inicio']; ?></td>
-                                <td><?php echo $oferta['fecha_fin'] ? $oferta['fecha_fin'] : 'Indefinida'; ?></td>
-                                <td>
-                                    <a href="modificar_oferta.php?id=<?php echo $oferta['idOferta']; ?>" class="boton"><i class="fas fa-edit"></i></a>
-                                    <a href="eliminar_oferta.php?id=<?php echo $oferta['idOferta']; ?>" class="boton eliminar" onclick="return confirm('¿Está seguro de que desea eliminar esta oferta?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                    <?php
+            include '../conexion.php';
+
+            $sql = "SELECT * FROM Oferta";
+            $result = $conexion->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>" . htmlspecialchars($row["idOferta"]) . "</td>
+                            <td>" . htmlspecialchars($row["motivo"]) . "</td>
+                            <td>" . htmlspecialchars($row["fecha_inicio"]) . "</td>
+                            <td>" . htmlspecialchars($row["fecha_fin"]) . "</td>
+                            <td>
+                                <a href='#' onclick='openModalEditar(" . json_encode($row) . ")' class='btn-edit'>
+                                <i class='fas fa-edit'></i></a>
+                                <a href='#' onclick='eliminarProducto(" . $row["idOferta"] . "); return false;' class='btn-delete'>
+                                <i class='fas fa-trash-alt'></i></a>
+                            </td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No hay Productos registrados</td></tr>";
+            }
+
+            $conexion->close();
+            ?>
                     </tbody>
                 </table>
-            <?php } else { ?>
-                <p>No hay ofertas disponibles.</p>
-            <?php } ?>
         </div>
     </div>
+
+    <!-- Bootstrap JS (opcional si necesitas funcionalidades como dropdowns, modales, etc.) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
-
-<?php
-// Cerrar la conexión a la base de datos
-$conexion->close();
-?>
